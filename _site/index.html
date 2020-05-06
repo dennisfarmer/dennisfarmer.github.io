@@ -9,23 +9,25 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Site Title</title>
-<meta name="description" content="An amazing website. ">
+<!-- begin _includes/seo.html --><title>Dennis' Portfolio</title>
+<meta name="description" content="Personal Website for Projects and Stuff ">
 
 
-  <meta name="author" content="Your Name">
+  <meta name="author" content="Dennis Farmer">
 
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Site Title">
-<meta property="og:title" content="Site Title">
+<meta property="og:site_name" content="Dennis' Portfolio">
+<meta property="og:title" content="Dennis’ Portfolio">
 <meta property="og:url" content="http://localhost:4000/">
 
 
-  <meta property="og:description" content="An amazing website. ">
+  <meta property="og:description" content="Personal Website for Projects and Stuff ">
 
 
+
+  <meta property="og:image" content="http://localhost:4000/images/ann_arbor_cropped.jpg">
 
 
 
@@ -50,7 +52,7 @@
     "@context": "https://schema.org",
     
       "@type": "Person",
-      "name": "Your Name",
+      "name": "Dennis Farmer",
       "url": "http://localhost:4000/"
     
   }
@@ -64,7 +66,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Site Title Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Dennis' Portfolio Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,11 +125,13 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          Site Title
+          Dennis' Portfolio
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/">Quick-Start Guide</a>
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/my-projects/">My Projects</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -143,6 +147,24 @@
 
     <div class="initial-content">
       
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/images/ann_arbor_cropped.jpg" alt="" class="page__hero-image">
+  
+  
+</div>
+
+
 
 
 
@@ -158,11 +180,13 @@
 
   <div class="author__content">
     
-      <h3 class="author__name" itemprop="name">Your Name</h3>
+      <h3 class="author__name" itemprop="name">Dennis Farmer</h3>
     
     
       <div class="author__bio" itemprop="description">
-        <p>I am an <strong>amazing</strong> person.</p>
+        <p>Always ask the important questions, like:</p>
+
+<p>“What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?”</p>
 
       </div>
     
@@ -173,7 +197,7 @@
     <ul class="author__urls social-icons">
       
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
-          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Somewhere</span>
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Clio, MI</span>
         </li>
       
 
@@ -213,6 +237,12 @@
 
       
 
+      
+        <li>
+          <a href="https://github.com/dennisfarmer" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+          </a>
+        </li>
       
 
       
@@ -268,6 +298,35 @@
 
 
 
+  
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/academicsuccess/" rel="permalink">Analyzing Factors of Academic Success
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Using Pandas to find correlations between student traits and academics
+</p>
+  </article>
+</div>
+
+
 
 
 
@@ -309,7 +368,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 Your Name. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2020 Dennis Farmer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
