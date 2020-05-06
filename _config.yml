@@ -99,7 +99,7 @@ analytics:
 author:
   name             : "Dennis Farmer"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Always ask the important questions, like:\n\n\"What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?\""
+  bio              : "\"What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?\""
   location         : "Clio, MI"
   email            :
   github           : "dennisfarmer"
