@@ -7,6 +7,10 @@
 -->
 <html lang="en" class="no-js">
   <head>
+    <!-- Adds LaTeX Support -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+        
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Analyzing Factors of Academic Success - Dennis’ Portfolio</title>
@@ -186,9 +190,7 @@
     
     
       <div class="author__bio" itemprop="description">
-        <p>Always ask the important questions, like:</p>
-
-<p>“What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?”</p>
+        <p>“What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?”</p>
 
       </div>
     
@@ -306,7 +308,7 @@
 
 
 
-  4 minute read
+  12 minute read
 
 </p>
           
@@ -315,19 +317,21 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><em>Full code can be accessed at the <a href="https://github.com/dennisfarmer/Factors-of-Academic-Success">Github repository</a></em></p>
+        <p><em>Full code can be accessed at the <a href="https://github.com/dennisfarmer/Factors-of-Academic-Success" target="_blank">Github repository</a></em></p>
 
-<p><a href="#part-i-data-cleaning-and-transformation">Part I: Cleaning</a></p>
+<p><a href="#part-i-data-cleaning">Part I: Data Cleaning</a></p>
 
-<p><a href="#part-ii-exploratory-data-analysis-and-visualization">Part II: Analysis and Visualization</a></p>
+<p><a href="#part-ii-data-transformation">Part II: Data Transformation</a></p>
 
-<p>When thinking of a beginner project idea to practice my new data analysis skills, I went right to the process of college admissions, and how grades and personal essays are used to determine the chances of being admitted. Lots of effort is put into students’ academic lives in order to acquire the skills necessary for their future career lives.</p>
+<p><a href="#part-iii-data-analysis-and-visualization">Part III: Data Analysis and Visualization</a></p>
+
+<p>When coming up with a beginner project idea to practice my new data analysis skills, I thought about the process of college admissions, and how grades and personal essays are used to determine the chances of being admitted. Lots of effort is put into students’ academic lives in order to acquire the skills necessary for their future career lives.</p>
 
 <p>It would be beneficial to these students to find ways of improving performance at school. Finding the correlations between numerous traits and grades will allow students to pinpoint things that may be either holding them back, or things that they should incorporate into their lives to improve their level of academic achievement.</p>
 
 <h3 id="data-source">Data Source:</h3>
 
-<p>A Google Forms Survey was used to allow students to opt-in to providing their academic and personal qualities information. This survey can be previewed and/or taken <a href="https://forms.gle/2AM9BPv56zsQCNc1A">here</a>.</p>
+<p>A Google Forms Survey was used to allow students to opt-in to providing their academic and personal qualities information. This survey can be previewed and/or taken <a href="https://forms.gle/2AM9BPv56zsQCNc1A" target="_blank">here</a>.</p>
 
 <table>
   <thead>
@@ -410,8 +414,10 @@
   </tbody>
 </table>
 
+<hr />
+
 <p><a href="#top">Back To Top</a></p>
-<h1 id="part-i-data-cleaning-and-transformation">Part I: Data Cleaning and Transformation</h1>
+<h1 id="part-i-data-cleaning">Part I: Data Cleaning</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
@@ -492,9 +498,9 @@
 
 <h3 id="expanding-dense-cells-into-individual-cells">Expanding Dense Cells into Individual Cells</h3>
 
-<p>Multiple choice questions in Google Forms compress every answer each participant gives into a single cell in the spreadsheet.</p>
+<p>Multiple answer questions in Google Forms compress every answer each participant gives into a single cell in the spreadsheet.</p>
 
-<p>To remedy this, we can write a function that creates unique columns in the Pandas dataframe for each unique element in a column of lists, commonly refered to as a <strong>dummy variable</strong>.</p>
+<p>To remedy this, we can write a function that creates unique columns in the Pandas dataframe for each unique element in a column of lists, commonly refered to as <strong>dummy variables</strong>.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_dummies</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">astype</span><span class="o">=</span><span class="nb">float</span><span class="p">):</span>
 
@@ -534,40 +540,281 @@
 
 <p><img src="/projectimages/FOAS/UnpopularQuestions.png" alt="Unpopular Survey Questions" title="Man's Search For Meaning is pretty great btw" /></p>
 
-<p>An important aspect to take note of for the duration of this project is the relatively low sample size of the survey. If only ~10% of the participants respond to a question, it is likely that their responses are not representitave of the entire population of students.</p>
+<p>An important aspect to take note of for the duration of this project is the relatively low sample size of the survey. If only ~10% of the participants responded to a question, it is likely that their responses are not representitave of the entire population of students.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">surveydata</span> <span class="o">=</span> <span class="n">surveydata</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'nofap'</span><span class="p">,</span><span class="s">'theater'</span><span class="p">,</span><span class="s">'gaming_club'</span><span class="p">,</span><span class="s">'stem_club'</span><span class="p">,</span><span class="s">'diary'</span><span class="p">,</span><span class="s">'flow:_the_psychology_of_optimal_experience_by_mihaly'</span><span class="p">,</span> <span class="s">'mr._robot'</span><span class="p">,</span> <span class="s">'eternal_sunshine_of_the_spotless_mind_(2004)'</span><span class="p">,</span> <span class="s">"man's_search_for_meaning_by_viktor_frankl"</span><span class="p">,</span> <span class="s">'self-reliance_by_ralph_waldo_emerson'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 <h3 id="exporting-the-data-to-csv-format">Exporting the Data to .CSV Format</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">export_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span><span class="s">'path/to/folder_name'</span><span class="o">=</span><span class="s">'.'</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s">'data'</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="p">[</span><span class="s">'.csv'</span><span class="p">],</span> <span class="n">set_index</span><span class="p">:</span><span class="s">'column_name'</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">mute_output</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-    
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    
-    <span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    <span class="n">out_names</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">set_index</span><span class="p">:</span>
-        <span class="n">dataframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">set_index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="s">'.csv'</span> <span class="ow">in</span> <span class="n">ftype</span><span class="p">:</span>
-        <span class="n">dataframe</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">f</span><span class="s">"{fname}.csv"</span><span class="p">)</span>
-        <span class="n">out_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="s">"{fname}.csv"</span><span class="p">)</span>
-        
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">mute_output</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'''The following file{"s have" if len(out_names) &gt; 1 else " has"} been saved to "{os.getcwd()}"</span><span class="se">\n</span><span class="s">'''</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">out_names</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"'"</span><span class="p">,</span><span class="s">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"["</span><span class="p">,</span><span class="s">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"]"</span><span class="p">,</span><span class="s">""</span><span class="p">),</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">root_dir</span><span class="p">)</span>
-    
-<span class="n">export_data</span><span class="p">(</span><span class="n">surveydata</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s">'surveydata'</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s">'.csv'</span><span class="p">,</span> <span class="n">set_index</span><span class="o">=</span><span class="s">'timestamp'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Function from my modules
+</span><span class="n">export_data</span><span class="p">(</span><span class="n">surveydata</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s">'surveydata'</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s">'.csv'</span><span class="p">,</span> <span class="n">set_index</span><span class="o">=</span><span class="s">'timestamp'</span><span class="p">)</span>
 </code></pre></div></div>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The following file has been saved to "/home/dennisfarmer/Github/Factors-of-Academic-Success"
 surveydata.csv
 </code></pre></div></div>
+<hr />
+
 <p><a href="#top">Back To Top</a></p>
-<h1 id="part-ii-exploratory-data-analysis-and-visualization">Part II: Exploratory Data Analysis and Visualization</h1>
+<h1 id="part-ii-data-transformation">Part II: Data Transformation</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">surveydata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"surveydata.csv"</span><span class="p">)</span>
+<span class="n">surveydata</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">"timestamp"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/dennisfarmer/Factors-of-Academic-Success/blob/master/surveydata.csv" target="_blank">Link to surveydata.csv file</a></p>
+
+<h3 id="intelligence-score">Intelligence Score</h3>
+<p>To create a more concise method for determining academic success, we will formulate an “Intelligence Score” for each participant, which will take a weighted average of the <code class="language-plaintext highlighter-rouge">hs_gpa</code>, <code class="language-plaintext highlighter-rouge">college_gpa</code>, and <code class="language-plaintext highlighter-rouge">converted_sat</code> columns compared with the average value for each respective column.</p>
+
+<p>To calculate weights for <code class="language-plaintext highlighter-rouge">hs_gpa</code>, <code class="language-plaintext highlighter-rouge">college_gpa</code>, and <code class="language-plaintext highlighter-rouge">converted_sat</code>, we can incorporate the statistical mean for each value. Since the <code class="language-plaintext highlighter-rouge">college_gpa</code> mean score is lower than the <code class="language-plaintext highlighter-rouge">hs_gpa</code> mean grade, we can conclude that getting a high GPA in college is more challenging than getting a high GPA in high school. Therefore, each score in the calculation should be weighed based on its relative difficulty, as seen in the table below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Column</th>
+      <th style="text-align: right">Mean</th>
+      <th style="text-align: right">Mean / 400</th>
+      <th style="text-align: right">Calculation</th>
+      <th style="text-align: right">Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">hs_gpa</code></td>
+      <td style="text-align: right">3.655</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right">4 - Mean</td>
+      <td style="text-align: right">0.344</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">college_gpa</code></td>
+      <td style="text-align: right">3.403</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right">4 - Mean</td>
+      <td style="text-align: right">0.596</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">converted_sat</code></td>
+      <td style="text-align: right">1294</td>
+      <td style="text-align: right">3.235</td>
+      <td style="text-align: right">4 - (Mean / 400)</td>
+      <td style="text-align: right">0.764</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If a number is missing, we can insert the average score for that value, then reweigh the missing column. If an  existing score is higher than its average, the percentage difference will be subtracted from the inserted value’s weight. Likewise, if a student is below average in a specific score, the inserted value’s weight will increase.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Pseudocode:
+
+for student_score in [existing_scores]:
+    deltaweight = (student_score / average_score) - 1
+    missing_value_weight = missing_value_weight - deltaweight
+</code></pre></div></div>
+
+<p>After all of the weights are adjusted for missing values, we will then use the weighted mean formula to calculate an intelligence score.</p>
+
+<p>\[\textrm{I Score} = \frac{w_{h}s_{h} + w_{c}s_{c} + w_{s}s_{s}}{w_{h}+w_{c}+w_{s}}\]</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">calc_intelligence</span><span class="p">(</span><span class="n">grades</span><span class="p">:</span><span class="s">"[floatHs, floatCollege, floatSat]"</span><span class="p">,</span> <span class="n">avgs</span><span class="p">:</span><span class="s">"[floatHs, floatCollege, floatSat]"</span><span class="p">):</span>
+    <span class="s">"""
+    Reduces a student's hard work throughout all of 
+    high school and university down to a single number.
+    """</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="o">-</span><span class="n">avgs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">4</span><span class="o">-</span><span class="n">avgs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="n">avgs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="mi">400</span><span class="p">)]</span>
+    
+    <span class="c1">### Correct for missing values:
+</span>    <span class="c1"># Stores the index of missing values, with non-missing values being recorded as '-1'
+</span>    <span class="n">missing_index</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">missing</span> <span class="ow">in</span> <span class="n">missing_index</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">missing</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">continue</span>
+            <span class="c1"># ^ if a score is not missing, continue to the next score
+</span>            
+        <span class="c1"># Insert the average grade to replace the missing value
+</span>        <span class="n">grades</span><span class="p">[</span><span class="n">missing</span><span class="p">]</span> <span class="o">=</span> <span class="n">avgs</span><span class="p">[</span><span class="n">missing</span><span class="p">]</span>
+        
+        <span class="c1"># Adjust weight for missing value based on if each non-missing
+</span>        <span class="c1"># value is greater or less than its corresponding mean
+</span>        <span class="k">for</span> <span class="n">notmiss</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">missing_index</span><span class="p">[</span><span class="n">notmiss</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">weights</span><span class="p">[</span><span class="n">missing</span><span class="p">]</span> <span class="o">-=</span> <span class="p">(</span><span class="n">grades</span><span class="p">[</span><span class="n">notmiss</span><span class="p">]</span> <span class="o">/</span> <span class="n">avgs</span><span class="p">[</span><span class="n">notmiss</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+        
+        <span class="k">if</span> <span class="n">weights</span><span class="p">[</span><span class="n">missing</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">weights</span><span class="p">[</span><span class="n">missing</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Convert SAT score to be out of 4 (instead of 1600)
+</span>    <span class="n">grades</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">400</span>
+    
+    <span class="c1"># Apply corresponding weights to each grade
+</span>    <span class="n">weighted_grades</span> <span class="o">=</span> <span class="p">[</span><span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> 
+    
+    <span class="c1"># Calculate intelligence score using weighted mean formula
+</span>    <span class="n">intelligence_score</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weighted_grades</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">intelligence_score</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">averages</span> <span class="o">=</span> <span class="p">[</span><span class="n">surveydata</span><span class="o">.</span><span class="n">hs_gpa</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">surveydata</span><span class="o">.</span><span class="n">college_gpa</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">surveydata</span><span class="o">.</span><span class="n">converted_sat</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>
+
+<span class="n">i_scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">calc_intelligence</span><span class="p">(</span><span class="n">listGrades</span><span class="p">,</span> <span class="n">averages</span><span class="p">)</span> 
+            <span class="k">for</span> <span class="n">listGrades</span> <span class="ow">in</span> <span class="n">surveydata</span><span class="p">[[</span><span class="s">"hs_gpa"</span><span class="p">,</span> <span class="s">"college_gpa"</span><span class="p">,</span> <span class="s">"converted_sat"</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+
+<span class="n">surveydata</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s">"i_score"</span><span class="p">,</span> <span class="n">i_scores</span><span class="p">)</span>
+
+<span class="n">export_data</span><span class="p">(</span><span class="n">surveydata</span><span class="p">[</span><span class="s">'i_score'</span><span class="p">],</span> <span class="n">fname</span><span class="o">=</span><span class="s">'i_score_values'</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s">'.csv'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The following file has been saved to "/home/dennisfarmer/Github/Factors-of-Academic-Success"
+i_score_values.csv
+</code></pre></div></div>
+
+<p><img src="/projectimages/FOAS/AI_bplot_scores.png" alt="Intelligence Score Compared to Student Metrics" /></p>
+
+<h3 id="favorite-music-artists">Favorite Music Artists</h3>
+
+<p>To analyze the <code class="language-plaintext highlighter-rouge">fav_music_artists</code> column and its correlation with <code class="language-plaintext highlighter-rouge">i_score</code>, we can split up each artist into its own column and insert either a <code class="language-plaintext highlighter-rouge">1</code> or <code class="language-plaintext highlighter-rouge">0</code> depending on if each participant listed each artist as one of their favorites.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fav_music_artists</span> <span class="o">=</span> <span class="n">make_dummies</span><span class="p">(</span><span class="n">surveydata</span><span class="o">.</span><span class="n">fav_music_artists</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">""</span><span class="p">)</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)),</span><span class="n">astype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">agg_fav_music_artists</span> <span class="o">=</span> <span class="n">fav_music_artists</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># agg_fav_music_artists:
+                         count:                        count:
+[blank] ------------------ 8  melanie_martinez --------- 2 
+queen -------------------- 4  luke_combs --------------- 2
+jacob_collier ------------ 3  radiohead ---------------- 2       
+taylor_swift ------------- 3  electric_light_orchestra - 2   
+the_beatles -------------- 3  imagine_dragons ---------- 2   
+post_malone -------------- 2  tennyson ----------------- 2   
+kendrick_lamar ----------- 2  childish_gambino --------- 2   
+paramore ----------------- 2  nirvana ------------------ 2
+the_red_hot_chili_peppers  2  jonas_brothers ----------- 2
+stone_temple_pilots ------ 2  ...
+tame_impala -------------- 2  [113_other_artists] ------ 1
+</code></pre></div></div>
+
+<p>Plotting the above data would lead to a massive number of bars in our chart, with many of the bars having the same width. This is because for the vast majority of artists, only a single person listed them as one of their favorites.</p>
+
+<p>We can combine this data with similar data from the <code class="language-plaintext highlighter-rouge">chosen_music_artists</code> column, then filter to only include artists with a  frequency of two or greater. This will allow us to keep a wide range of different artists from the dataset.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">combine_duplicate_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column_names</span><span class="p">,</span> <span class="n">suffix</span><span class="p">):</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">column_names</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">dataframe</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[[</span><span class="n">column</span><span class="p">,</span> <span class="n">column</span><span class="o">+</span><span class="n">suffix</span><span class="p">]]</span><span class="o">.</span><span class="nb">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">column</span><span class="o">+</span><span class="n">suffix</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
+            <span class="k">continue</span>
+    <span class="k">return</span> <span class="n">dataframe</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">chosen_music_artists</span> <span class="o">=</span> <span class="n">make_dummies</span><span class="p">(</span><span class="n">surveydata</span><span class="o">.</span><span class="n">chosen_music_artists</span>
+                                    <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">""</span><span class="p">)</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)),</span>
+                                    <span class="n">astype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">music_artists</span> <span class="o">=</span> <span class="n">chosen_music_artists</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fav_music_artists</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">"left"</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s">"2"</span><span class="p">)</span>
+
+<span class="n">music_artists</span> <span class="o">=</span> <span class="n">combine_duplicate_columns</span><span class="p">(</span><span class="n">music_artists</span><span class="p">,</span> <span class="n">chosen_music_artists</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s">"2"</span><span class="p">)</span>
+
+<span class="n">music_artists</span> <span class="o">=</span> <span class="n">music_artists</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
+    <span class="n">chosen_music_artists</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span> 
+    <span class="o">+</span> <span class="n">fav_music_artists</span><span class="o">.</span><span class="nb">sum</span><span class="p">()[</span><span class="n">fav_music_artists</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+                                       <span class="p">)]</span>
+</code></pre></div></div>
+<p><img src="/projectimages/FOAS/MA_frequency_allmusicartists.png" alt="Music Artist Frequency" /></p>
+
+<p>If these results were being put to meaningful use, we would drop the artists with a low frequency to improve accuracy, based on the total number of people who took the survey.</p>
+
+<p>To order the musical artists in the dataset by average <code class="language-plaintext highlighter-rouge">i_score</code>, we can write a function that accumulates the average <code class="language-plaintext highlighter-rouge">i_score</code> for each artist by indexing the dataset with the music artist boolean columns.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_avg_i_scores</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">dummy</span><span class="p">,</span> <span class="n">i_col</span><span class="o">=</span><span class="s">'i_score'</span><span class="p">):</span>
+    <span class="n">dummy</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">avg_scores</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">dummy</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">avg_scores</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dummy</span><span class="p">[</span><span class="n">col</span><span class="p">],</span><span class="n">i_col</span><span class="p">]</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">dummy</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">avg_scores</span><span class="p">)</span>
+</code></pre></div></div>
+<hr />
+
+<p><a href="#top">Back To Top</a></p>
+<h1 id="part-iii-data-analysis-and-visualization">Part III: Data Analysis and Visualization</h1>
+
+<h3 id="distribution-of-grades">Distribution of Grades</h3>
+
+<p><img src="/projectimages/FOAS/INTRO_gradedistribution.png" alt="Distribution of Grades" /></p>
+
+<p>As expected, College GPAs are slightly lower on average than High School GPAs, with equivalent SAT scores placing lower than both. The average SAT scores have a bell curve that is quite narrow in contrast with the two GPA datapoints. This might be due to the fact that few people score a 1600 on the SAT, while it is rather unrare to see high school and college students with 4.0 GPAs.</p>
+
+<h3 id="music-artists">Music Artists</h3>
+
+<p><img src="/projectimages/FOAS/FOAS_MusicArtists.png" alt="Music Artists and Their Fan's Average Academic Success" /></p>
+
+<p>It is surprising that seemingly “big brain” bands like Radiohead and Beethoven lay close to the average for the dataset, as opposed to being higher in the list. This is likely due to the low frequency of each artist in general leading to randomness in the mean values, however I would have expected bands like The Beatles and Billy Joel to be higher due to their “before-our-time”-ness. To make our data more accurate, we could just plot the artists with freq &gt; 2, but that would not leave us with a lot of remaining data to work with.</p>
+
+<p>Frank Zappa leading the intelligence pack makes sense, since he is a percussionist (why else?). Panic(!) at The Disco being at the bottom of the intellectual food chain is likely a result of their frequency being equal to only two.</p>
+
+<h3 id="sleep-analysis">Sleep Analysis</h3>
+
+<p><img src="/projectimages/FOAS/FOAS_corr_bedwake_iscore.png" alt="Bed/Wake Time and Academic Success" /></p>
+
+<p><img src="/projectimages/FOAS/FOAS_AmountOfSleep.png" alt="Amount of Sleep and Academic Success" /></p>
+
+<p>A lack of clear correlation between healthy sleep patterns and academic success likely means that sleep patterns are not able to  make or break your academic life. There is a rather faint v-shape trend on the bed/wake time plot (drawn above), but when considering the dispersion of the dataset, this trend is not very significant.</p>
+
+<h3 id="self-development-methods">Self-Development Methods</h3>
+
+<p><img src="/projectimages/FOAS/FOAS_SelfDevelopment.png" alt="Correlations between Self-Development Methods and Academic Success" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                  Average I Score
+Limit Social Media -- 3.468
+Diet ---------------- 3.458
+Exercise ------------ 3.440
+Journal ------------- 3.435
+Meditation ---------- 3.421
+Cold Showers -------- 3.401
+Morning Routine ----- 3.399
+
+[Average] ----------- 3.395
+
+Energy Drinks ------- 3.376
+Coffee -------------- 3.376
+</code></pre></div></div>
+<p>The general conclusion is that some of these traits can indeed give an outline to determine a student’s academic success. Correlations do exist, between both <code class="language-plaintext highlighter-rouge">i_score</code> and between different methods on the matrix. Although the actual numeric differences between <code class="language-plaintext highlighter-rouge">i_score</code> values for each of the self improvement methods is negligible, most of our results do make sense from an intuitive standpoint.</p>
+
+<p>Beyond academics, there are some consistant trends across the correlation matrix:</p>
+
+<ul>
+  <li>
+    <p>Coffee drinkers are less likely to participate in any of the other methods (besides using energy drinks). Unfortunately, this abnormally strong trend is more likely than not because of a low sample size, because only 6 participants responded as being coffee drinkers (the question was added late).</p>
+  </li>
+  <li>
+    <p>People who limit their use of social media are statistically likely to also participate in most of the methods on this matrix, and are unlikely to participate in the activities that negatively correlate with <code class="language-plaintext highlighter-rouge">i-score</code>. If you are looking for a way to get into the methods on the matrix, looking into limiting your social media usage is a great way to start.</p>
+  </li>
+  <li>
+    <p>Students who meditate are likely to also keep a journal, and those who exercise are also likely to maintain a healthy diet. These traits go hand-in-hand as being focused on mind and body respectively, which is interesting to notice alongside the fact that these two sets of traits do not necessarily have a strong correlation with each other, meaning that students who journal and meditate don’t really have a higher or lower chance of dieting and exercising.</p>
+  </li>
+</ul>
+
+<h4 id="coffee-vs-energy-drinks">Coffee vs Energy Drinks</h4>
+<h6>(This is the best plot I could come up with for these, sue me for my terrible graphs lol)</h6>
+
+<p><img src="/projectimages/FOAS/PD_coffeeVSenergy_iscore.png" alt="Coffee vs Energy Drink" /></p>
+
+<p>One of the more surprising conclusions is that being a coffee drinker turns out to negatively impact your grades more than being an energy drink user. As well as this, neither of these drinks are correlated with <em>higher</em> grades (on average), rather the effect of energy drinks is close to zero and coffee has a negative correlation of -0.38. You would think that drinking coffee would increase your brain’s clarity or something, but according to the data, the inverse is true.</p>
+
+<p>The combination of coffee and energy drinks impacts academic achievement by a non-marginal amount. Sample size is still something to consider with this data, but at the same time the clear difference between categories is quite interesting to observe.</p>
+
+<p>Overall, the idea to draw from this is that caffeine is bad for your brain. That doesn’t really stop me from drinking it, but statistically speaking, you should <strong>not</strong> drink it. :)</p>
+
+<h4 id="mind-vs-body-focused-methods">Mind vs Body Focused Methods</h4>
+
+<p><img src="/projectimages/FOAS/SD_corr_mindvsbody.png" alt="Correlation Between Mind and Body" /></p>
+
+<p><img src="/projectimages/FOAS/PD_mindVSbody_iscore.png" alt="Mind vs Body Focused" /></p>
+
+<p>Comparing mind and body focused methods and their effect on <code class="language-plaintext highlighter-rouge">i_score</code> shows us that incorporating either one tends to correlate with better academics, with a synergy effect when both methods are used.</p>
+
+<h3 id="myers-briggs-letters">Myers-Briggs Letters</h3>
+
+<h1 id="summary">Summary</h1>
+<p>You may notice a common theme of issues arising from having an insufficient sample size. With this format of project (small-scale web survey),</p>
 
         
       </section>
