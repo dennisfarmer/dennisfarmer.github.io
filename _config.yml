@@ -14,13 +14,13 @@
 github: [metadata]
 
 
-# theme                  : "minimal-mistakes-jekyll"
+theme                    : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" #"default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "contrast" #"default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Dennis' Portfolio"
+title                    : "Dennis Farmer's Portfolio"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Dennis Farmer"
@@ -98,7 +98,8 @@ analytics:
 # Site Author
 author:
   name             : "Dennis Farmer"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/bio_photo_placeholder.png"
+  #avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "\"What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?\""
   location         : "Clio, MI"
   email            :
@@ -148,6 +149,7 @@ author:
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
 
+      
 # Site Footer
 footer:
   links:
@@ -159,7 +161,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/dennisfarmer"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -310,4 +312,4 @@ defaults:
       share: true
       related: true
 
-theme: jekyll-theme-minimal
+

@@ -2,6 +2,7 @@
 title: "Analyzing Factors of Academic Success"
 date: 2020-05-05
 tags: [python, pandas]
+permalink: /factors_of_academic_success/
 header:
   image: "/projectimages/FOAS/header.jpg"
 excerpt: "Using Pandas to find correlations between student traits and academics"
@@ -22,6 +23,10 @@ When coming up with a beginner project idea to practice my new data analysis ski
  
 
 It would be beneficial to these students to find ways of improving performance at school. Finding the correlations between numerous traits and grades will allow students to pinpoint things that may be either holding them back, or things that they should incorporate into their lives to improve their level of academic achievement.
+
+
+<em>Note: I realize that the Jekyll theme I'm using for this website makes the content really narrow. If you zoom into the webpage or make your browser window less wide, this is remedied a little bit.</em>
+
 
 ### Data Source:
 
@@ -194,7 +199,7 @@ surveydata.set_index("timestamp", inplace=True)
 ### Intelligence Score
 To create a more concise method for determining academic success, we will formulate an "Intelligence Score" for each participant, which will take a weighted average of the `hs_gpa`, `college_gpa`, and `converted_sat` columns compared with the average value for each respective column.
 
-To calculate weights for `hs_gpa`, `college_gpa`, and `converted_sat`, we can incorporate the statistical mean for each value. Since the `college_gpa` mean score is lower than the `hs_gpa` mean grade, we can conclude that getting a high GPA in college is more challenging than getting a high GPA in high school. Therefore, each score in the calculation should be weighed based on its relative difficulty, as seen in the table below:
+To calculate weights for `hs_gpa`, `college_gpa`, and `converted_sat`, we can incorporate the mean of each value. Since the `college_gpa` mean score is lower than the `hs_gpa` mean grade, we can conclude that getting a high GPA in college is more challenging than getting a high GPA in high school. Therefore, each score in the calculation should be weighed based on its relative difficulty, as seen in the table below:
 
 |Column|Mean|Mean / 400|Calculation|Weight|
 |:-----|---:|---------:|----------:|-----:|
@@ -358,6 +363,31 @@ It is surprising that seemingly "big brain" bands like Radiohead and Beethoven l
 
 Frank Zappa leading the intelligence pack makes sense, since he is a percussionist (why else?). Panic(!) at The Disco being at the bottom of the intellectual food chain is likely a result of their frequency being equal to only two.
 
+Of course, this data does not mean that there is a causation between listening to certain artists and doing better at school. Those who are already good at school are likely more inclined to be fans of artists that smart students listen to.
+
+We can look at the correlation between the number of artists each participant submitted and `i_score`, and see if having a large number of favorites affects academic success.
+
+```python
+music_artists_sums = pd.DataFrame(surveydata.i_score
+                                 ).join(
+                                pd.DataFrame(music_artists.sum(axis=1)))
+```
+```
+---------------------------------------------------------------
+# Correlation for participants who answered 'fav_music_artists' 
+# and 'chosen_music_artists' questions:
+
+r = 0.277326
+
+---------------------------------------------------------------
+# Correlation for participants who were only asked the 
+# 'fav_music_artists' question:
+
+r = 0.13558
+```
+
+There is a slight correlation between the number of favorite music artists and academic grades. Since your number of favorite music artists is something you can increase by listening to different types of music, it would be in your best interest to diversify your taste in music.
+
 ### Sleep Analysis
 
 ![Bed/Wake Time and Academic Success](/projectimages/FOAS/FOAS_corr_bedwake_iscore.png)
@@ -389,18 +419,20 @@ The general conclusion is that some of these traits can indeed give an outline t
 
 Beyond academics, there are some consistant trends across the correlation matrix: 
 
-- Coffee drinkers are less likely to participate in any of the other methods (besides using energy drinks). Unfortunately, this abnormally strong trend is more likely than not because of a low sample size, because only 6 participants responded as being coffee drinkers (the question was added late). 
-
-- People who limit their use of social media are statistically likely to also participate in most of the methods on this matrix, and are unlikely to participate in the activities that negatively correlate with `i-score`. If you are looking for a way to get into the methods on the matrix, looking into limiting your social media usage is a great way to start.
+- Coffee drinkers are less likely to participate in any of the other methods (besides using energy drinks). Unfortunately, this abnormally strong trend is likely just because of a low sample size, because only 6 participants responded as being coffee drinkers (the question was added later on). 
 
 - Students who meditate are likely to also keep a journal, and those who exercise are also likely to maintain a healthy diet. These traits go hand-in-hand as being focused on mind and body respectively, which is interesting to notice alongside the fact that these two sets of traits do not necessarily have a strong correlation with each other, meaning that students who journal and meditate don't really have a higher or lower chance of dieting and exercising.
 
+- People who limit their use of social media are likely to also participate in most of the methods on this matrix (besides body-focused methods, interestingly), and are unlikely to participate in the activities that negatively correlate with `i-score`. If you are looking for a way to get into the methods on the matrix, looking into limiting your social media usage is a great way to start.
+
 #### Coffee vs Energy Drinks
+
+One of the more surprising conclusions is that being a coffee drinker turns out to negatively impact your grades more than being an energy drink user. As well as this, neither of these drinks are correlated with *higher* grades (on average), rather the effect of energy drinks is close to zero and coffee has a negative correlation of -0.38. You would think that drinking coffee would increase your brain's clarity or something, but according to the data, the inverse is true.
+
 <h6>(This is the best plot I could come up with for these, sue me for my terrible graphs lol)</h6>
 
 ![Coffee vs Energy Drink](/projectimages/FOAS/PD_coffeeVSenergy_iscore.png)
 
-One of the more surprising conclusions is that being a coffee drinker turns out to negatively impact your grades more than being an energy drink user. As well as this, neither of these drinks are correlated with *higher* grades (on average), rather the effect of energy drinks is close to zero and coffee has a negative correlation of -0.38. You would think that drinking coffee would increase your brain's clarity or something, but according to the data, the inverse is true.
 
 The combination of coffee and energy drinks impacts academic achievement by a non-marginal amount. Sample size is still something to consider with this data, but at the same time the clear difference between categories is quite interesting to observe.
 
@@ -416,6 +448,92 @@ Comparing mind and body focused methods and their effect on `i_score` shows us t
 
 ### Myers-Briggs Letters
 
+While studying typology is not necessarily appllcable to the scope of this project (finding ways to improve academic success), it is interesting to find data that supports or disproves prior notions about different Myers-Briggs types. While we don't have enough participants to effectively analyze types, we can look at how the four letters might affect a student's academic achievement levels.
+
+![MBTI and Academic Success](/projectimages/FOAS/FOAS_mbtiletters.png)
+
+It makes sense that personalities labeled as "Thinking" are better at schooling than those labeled as "Feeling". Most of the people I know who have a "T" in their type have excellent grade point averages, while myself as someone with "F" in my type find it hard at times to be academically disciplined.
+
+As most people could have predicted, introverts outweigh extroverts in their level of academic achievement. The difference between judging and perceiving types could be due to how these types prefer to act in relation to the outside world. Judging types prefer clearly defined tasks with specific timelines and deadlines, while perceiving people appear spontaneous, flexible, and open to whatever may arise.
+
+To further dive into using this data, we could join each MBTI type with its respective cognitive function stack, then analyze the individual functions to identify the strength of any correlation with academic success.
+
+### Interactions Between Awkwardness and Anxiousness
+
+Awkwardness and social anxiety are things many students deal with for many different reasons. Whether it is due to overthinking, hormones, or self-consciousness, these two traits similarly deal with how brains work. The relation between these two traits might allow us to find common patterns between them.
+
+### Awk|Anx: Academic Success
+
+![How to read a box and whisker plot](/projectimages/FOAS/boxplot.jpg "How to read a box and whisker plot")
+
+![Boxplot, I Scores](/projectimages/FOAS/PQ_AWKvsANX_iscore.png)
+
+Surprisingly, most of the different types of students have similar academic standings. People who do not have awkwardness nor anxiety (aka souless robots) seem to perform slightly better on average, as more of those students are skewed towards the upper range of `i_score` values.
+
+Below are a number of pie charts, each displaying the percentage of students in each category who exhibit a particular trait as well as the sample size of each category. I want to eventually write a web app to allow viewers to change graph variables on-the-fly, but I have other stuff I would rather do at the moment. Feel free to run the code below in a Google Colab session and mess with the data yourself if you wish to see other traits.
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load surveydata.csv from Github
+url = 'https://raw.githubusercontent.com/dennisfarmer/Factors-of-Academic-Success/master/surveydata.csv'
+surveydata = pd.read_csv(url, error_bad_lines=False)
+surveydata.set_index("timestamp", inplace=True)
+
+def pie(v, color=None):
+        v = v.value_counts().sort_index(ascending=False)
+        n.append(v.sum())
+        plt.pie(v.values, labels=v.index, autopct='%1.1f%%', shadow=True, startangle=0, textprops={'fontsize': 20}, colors=["#cb453e", "#eda791"])
+
+def awk_anx_facet_pies(facet_dummy_col, plot_function=pie, awk='social_awkward',anx='social_anxious', data=surveydata):
+    sns.set_context('talk')
+    plt.style.use('ggplot')
+    
+    try:
+        data[facet_dummy_col].astype(float)
+    except ValueError:
+        raise ValueError("boolean column must be used (True/False, 1/0 only)")
+        
+    data = data[[facet_dummy_col,awk,anx]].copy()
+    for c in [facet_dummy_col,awk,anx]:
+        data.loc[:,c] = data[c].map({1:"Yes", 0:"No", True:"Yes", False:"No"})
+    data.columns = [facet_dummy_col.title().replace("_"," "), 'Awkward', 'Anxious']
+
+    # Record sample size for each plot
+    global n
+    n=[]
+
+    g = sns.FacetGrid(data, col="Anxious", row="Awkward", height=5)
+    g.map(plot_function, facet_dummy_col.title().replace("_"," "))
+
+    titles = [f"Awkward, n = {n[0]}", f"Awkward and Anxious, n = {n[1]}", f"Neither, n = {n[2]}", f"Anxious, n = {n[3]}"]
+    for i, ax in enumerate(g.axes.flat):
+        ax.set_title(titles[i])
+
+    # plt.savefig(f'awkward_vs_anxious_{facet_dummy_col}.png')
+    plt.show()
+```
+```python
+# -------------------------------------------------
+# surveydata.columns   <-- ( to view column names )
+awk_anx_facet_pies('trait_name')
+#
+# IPYTHON NOTEBOOK CRASH COURSE:
+# Ctl + Enter to run current cell
+# Esc / Enter to leave and return to editing mode
+# -------------------------------------------------
+```
+
+### Awk|Anx: Depression
+![Piechart, Depression](/projectimages/FOAS/PQ_AWKvsANX_depressed.png)
+
+### Awk|Anx: Introversion
+![Piechart, Introvert](/projectimages/FOAS/PQ_AWKvsANX_introvert.png)
+
+### Awk|Anx: Meditation
+![Piechart, Meditation](/projectimages/FOAS/PQ_AWKvsANX_meditation.png)
 
 
 # Summary
