@@ -1,7 +1,9 @@
 ---
 title: "Analyzing Factors of Academic Success"
-date: 2020-05-05
-tags: [python, pandas]
+date: 2020-05-10
+
+[comment]: # (tags: [python, pandas])
+
 permalink: /factors_of_academic_success/
 header:
   image: "/projectimages/FOAS/header.jpg"
@@ -11,13 +13,13 @@ mathjax: "true"
 
 <em>Full code can be accessed at the <a href="https://github.com/dennisfarmer/Factors-of-Academic-Success" target="_blank">Github repository</a></em>
 
-
-
 [Part I: Data Cleaning](#part-i-data-cleaning)
 
 [Part II: Data Transformation](#part-ii-data-transformation) 
 
 [Part III: Data Analysis and Visualization](#part-iii-data-analysis-and-visualization)
+
+[Part IV: Short Summary](#part-iv-short-summary)
 
 When coming up with a beginner project idea to practice my new data analysis skills, I thought about the process of college admissions, and how grades and personal essays are used to determine the chances of being admitted. Lots of effort is put into students' academic lives in order to acquire the skills necessary for their future career lives.
  
@@ -33,9 +35,86 @@ It would be beneficial to these students to find ways of improving performance a
 A Google Forms Survey was used to allow students to opt-in to providing their academic and personal qualities information. This survey can be previewed and/or taken <a href="https://forms.gle/2AM9BPv56zsQCNc1A" target="_blank">here</a>.
 
 
-|TIMESTAMP        |SURVEY_LOCATION|AGE|GENDER|MAJOR       |SCHOOL    |SCHOOL_YEAR|HS_GPA|COLLEGE_GPA|SAT |ACT|IQ |ACTIVITIES           |NUM_HOBBIES|WATCHED_MEDIA                                                                                                                                                                                                                                                                        |MUSIC_GENRE|FAV_MUSIC_ARTISTS|FAV_COLOR|FAV_COMP_COLOR|SELF_IMPROV                                                                                                                                                                                                                                                                                                                                                            |GO_TO_BED |UP_FROM_BED|OPENNESS|CONSCIENTIOUSNESS|EXTRAVERSION|AGREEABLENESS|NEUROTICISM|MYERS_BRIGGS|RELIGION    |SOCIAL_AWKWARD|SOCIAL_ANXIOUS|SHOW_UP_EARLY|CLUTTERED|DEPRESSED|SHARE_POSTS_OFTEN|
-|-----------------|----------|---|------|------------|----------|-----------|------|-----------|----|---|---|---------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|-----------------|---------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-----------|--------|-----------------|------------|-------------|-----------|------------|------------|--------------|--------------|-------------|---------|---------|-----------------|
-|3/4/2020 11:49:53|TEST     |18 |Male  |Data Science|University|Freshman   |3.5   |3.75       |1350|   |   |Indoor Drumline / WGI|5          |Blade Runner (1982), Ferris Bueller's Day Off (1986), ...|  |                 |         |              |I take cold showers, I try to limit my use of social media, ...|9:59:59 PM|6:00:00 AM |8       |8                |2           |10           |8          |INFJ        |Nonreligious|Yes           |No            |No           |Yes      |No       |No               |
+<table>
+  <thead>
+    <tr>
+      <th>TIMESTAMP</th>
+      <th>SURVEY_LOCATION</th>
+      <th>AGE</th>
+      <th>GENDER</th>
+      <th>MAJOR</th>
+      <th>SCHOOL</th>
+      <th>SCHOOL_YEAR</th>
+      <th>HS_GPA</th>
+      <th>COLLEGE_GPA</th>
+      <th>SAT</th>
+      <th>ACT</th>
+      <th>IQ</th>
+      <th>ACTIVITIES</th>
+      <th>NUM_HOBBIES</th>
+      <th>WATCHED_MEDIA</th>
+      <th>MUSIC_GENRE</th>
+      <th>FAV_MUSIC_ARTISTS</th>
+      <th>FAV_COLOR</th>
+      <th>FAV_COMP_COLOR</th>
+      <th>SELF_IMPROV</th>
+      <th>GO_TO_BED</th>
+      <th>UP_FROM_BED</th>
+      <th>OPENNESS</th>
+      <th>CONSCIENTIOUSNESS</th>
+      <th>EXTRAVERSION</th>
+      <th>AGREEABLENESS</th>
+      <th>NEUROTICISM</th>
+      <th>MYERS_BRIGGS</th>
+      <th>RELIGION</th>
+      <th>SOCIAL_AWKWARD</th>
+      <th>SOCIAL_ANXIOUS</th>
+      <th>SHOW_UP_EARLY</th>
+      <th>CLUTTERED</th>
+      <th>DEPRESSED</th>
+      <th>SHARE_POSTS_OFTEN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3/4/2020 11:49:53</td>
+      <td>TEST</td>
+      <td>18</td>
+      <td>Male</td>
+      <td>Data Science</td>
+      <td>University</td>
+      <td>Freshman</td>
+      <td>3.5</td>
+      <td>3.75</td>
+      <td>1350</td>
+      <td> </td>
+      <td> </td>
+      <td>Indoor Drumline / WGI</td>
+      <td>5</td>
+      <td>Blade Runner (1982), Ferris Bueller’s Day Off (1986), …</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>I take cold showers, I try to limit my use of social media, …</td>
+      <td>9:59:59 PM</td>
+      <td>6:00:00 AM</td>
+      <td>8</td>
+      <td>8</td>
+      <td>2</td>
+      <td>10</td>
+      <td>8</td>
+      <td>INFJ</td>
+      <td>Nonreligious</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
 
 <hr>
 [Back To Top](#top)
@@ -168,7 +247,7 @@ surveydata = surveydata.drop(columns, axis=1)
 ```
 ### Dropping Unpopular Survey Questions
 
-![Unpopular Survey Questions](/projectimages/FOAS/UnpopularQuestions.png "Man's Search For Meaning is pretty great btw")
+![Barplot, Unpopular Survey Questions](/projectimages/FOAS/UnpopularQuestions.png "Man's Search For Meaning is pretty great btw")
 
 An important aspect to take note of for the duration of this project is the relatively low sample size of the survey. If only ~10% of the participants responded to a question, it is likely that their responses are not representitave of the entire population of students.
 
@@ -201,11 +280,40 @@ To create a more concise method for determining academic success, we will formul
 
 To calculate weights for `hs_gpa`, `college_gpa`, and `converted_sat`, we can incorporate the mean of each value. Since the `college_gpa` mean score is lower than the `hs_gpa` mean grade, we can conclude that getting a high GPA in college is more challenging than getting a high GPA in high school. Therefore, each score in the calculation should be weighed based on its relative difficulty, as seen in the table below:
 
-|Column|Mean|Mean / 400|Calculation|Weight|
-|:-----|---:|---------:|----------:|-----:|
-|`hs_gpa`|3.655||4 - Mean|0.344|
-|`college_gpa`|3.403||4 - Mean|0.596|
-|`converted_sat`|1294|3.235|4 - (Mean / 400)|0.764|
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Column</th>
+      <th style="text-align: right">Mean</th>
+      <th style="text-align: right">Mean / 400</th>
+      <th style="text-align: right">Calculation</th>
+      <th style="text-align: right">Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">hs_gpa</code></td>
+      <td style="text-align: right">3.655</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right">4 - Mean</td>
+      <td style="text-align: right">0.344</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">college_gpa</code></td>
+      <td style="text-align: right">3.403</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right">4 - Mean</td>
+      <td style="text-align: right">0.596</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">converted_sat</code></td>
+      <td style="text-align: right">1294</td>
+      <td style="text-align: right">3.235</td>
+      <td style="text-align: right">4 - (Mean / 400)</td>
+      <td style="text-align: right">0.764</td>
+    </tr>
+  </tbody>
+</table>
 
 If a number is missing, we can insert the average score for that value, then reweigh the missing column. If an  existing score is higher than its average, the percentage difference will be subtracted from the inserted value's weight. Likewise, if a student is below average in a specific score, the inserted value's weight will increase.
 
@@ -274,7 +382,7 @@ The following file has been saved to "/home/dennisfarmer/Github/Factors-of-Acade
 i_score_values.csv
 ```
 
-![Intelligence Score Compared to Student Metrics](/projectimages/FOAS/AI_bplot_scores.png)
+![Boxplot, Intelligence Score Compared to Student Metrics](/projectimages/FOAS/AI_bplot_scores.png)
 
 ### Favorite Music Artists
 
@@ -330,7 +438,7 @@ music_artists = music_artists[np.unique(
     + fav_music_artists.sum()[fav_music_artists.sum() > 1].index.to_list()
                                        )]
 ```
-![Music Artist Frequency](/projectimages/FOAS/MA_frequency_allmusicartists.png)
+![Barplot, Music Artist Frequency](/projectimages/FOAS/MA_frequency_allmusicartists.png)
 
 If these results were being put to meaningful use, we would drop the artists with a low frequency to improve accuracy, based on the total number of people who took the survey.
 
@@ -350,14 +458,14 @@ def get_avg_i_scores(dataframe, dummy, i_col='i_score'):
 
 ### Distribution of Grades
 
-![Distribution of Grades](/projectimages/FOAS/INTRO_gradedistribution.png)
+![KDE Plot, Distribution of Grades](/projectimages/FOAS/INTRO_gradedistribution.png)
 
 As expected, College GPAs are slightly lower on average than High School GPAs, with equivalent SAT scores placing lower than both. The average SAT scores have a bell curve that is quite narrow in contrast with the two GPA datapoints. This might be due to the fact that few people score a 1600 on the SAT, while it is rather unrare to see high school and college students with 4.0 GPAs.
 
 
 ### Music Artists
 
-![Music Artists and Their Fan's Average Academic Success](/projectimages/FOAS/FOAS_MusicArtists.png)
+![Barplot, Music Artists and Their Fan's Average Academic Success](/projectimages/FOAS/FOAS_MusicArtists.png)
 
 It is surprising that seemingly "big brain" bands like Radiohead and Beethoven lay close to the average for the dataset, as opposed to being higher in the list. This is likely due to the low frequency of each artist in general leading to randomness in the mean values, however I would have expected bands like The Beatles and Billy Joel to be higher due to their "before-our-time"-ness. To make our data more accurate, we could just plot the artists with freq > 2, but that would not leave us with a lot of remaining data to work with.
 
@@ -390,15 +498,15 @@ There is a slight correlation between the number of favorite music artists and a
 
 ### Sleep Analysis
 
-![Bed/Wake Time and Academic Success](/projectimages/FOAS/FOAS_corr_bedwake_iscore.png)
+![Scatterplot, Bed/Wake Time and Academic Success](/projectimages/FOAS/FOAS_corr_bedwake_iscore.png)
 
-![Amount of Sleep and Academic Success](/projectimages/FOAS/FOAS_AmountOfSleep.png)
+![Scatterplot, Amount of Sleep and Academic Success](/projectimages/FOAS/FOAS_AmountOfSleep.png)
 
 A lack of clear correlation between healthy sleep patterns and academic success likely means that sleep patterns are not able to  make or break your academic life. There is a rather faint v-shape trend on the bed/wake time plot (drawn above), but when considering the dispersion of the dataset, this trend is not very significant.
 
 ### Self-Development Methods
 
-![Correlations between Self-Development Methods and Academic Success](/projectimages/FOAS/FOAS_SelfDevelopment.png)
+![Correlation Matrix, Correlations between Self-Development Methods and Academic Success](/projectimages/FOAS/FOAS_SelfDevelopment.png)
 
 ```
                   Average I Score
@@ -431,7 +539,7 @@ One of the more surprising conclusions is that being a coffee drinker turns out 
 
 <h6>(This is the best plot I could come up with for these, sue me for my terrible graphs lol)</h6>
 
-![Coffee vs Energy Drink](/projectimages/FOAS/PD_coffeeVSenergy_iscore.png)
+![Facet Barplots, Coffee vs Energy Drink](/projectimages/FOAS/PD_coffeeVSenergy_iscore.png)
 
 
 The combination of coffee and energy drinks impacts academic achievement by a non-marginal amount. Sample size is still something to consider with this data, but at the same time the clear difference between categories is quite interesting to observe.
@@ -440,9 +548,9 @@ Overall, the idea to draw from this is that caffeine is bad for your brain. That
 
 #### Mind vs Body Focused Methods
 
-![Correlation Between Mind and Body](/projectimages/FOAS/SD_corr_mindvsbody.png)
+![Correlation Matrix, Correlation Between Mind and Body](/projectimages/FOAS/SD_corr_mindvsbody.png)
 
-![Mind vs Body Focused](/projectimages/FOAS/PD_mindVSbody_iscore.png)
+![Facet Barplots, Mind vs Body Focused](/projectimages/FOAS/PD_mindVSbody_iscore.png)
 
 Comparing mind and body focused methods and their effect on `i_score` shows us that incorporating either one tends to correlate with better academics, with a synergy effect when both methods are used.
 
@@ -450,7 +558,7 @@ Comparing mind and body focused methods and their effect on `i_score` shows us t
 
 While studying typology is not necessarily appllcable to the scope of this project (finding ways to improve academic success), it is interesting to find data that supports or disproves prior notions about different Myers-Briggs types. While we don't have enough participants to effectively analyze types, we can look at how the four letters might affect a student's academic achievement levels.
 
-![MBTI and Academic Success](/projectimages/FOAS/FOAS_mbtiletters.png)
+![Barplot, MBTI and Academic Success](/projectimages/FOAS/FOAS_mbtiletters.png)
 
 It makes sense that personalities labeled as "Thinking" are better at schooling than those labeled as "Feeling". Most of the people I know who have a "T" in their type have excellent grade point averages, while myself as someone with "F" in my type find it hard at times to be academically disciplined.
 
@@ -466,11 +574,11 @@ Awkwardness and social anxiety are things many students deal with for many diffe
 
 ![How to read a box and whisker plot](/projectimages/FOAS/boxplot.jpg "How to read a box and whisker plot")
 
-![Boxplot, I Scores](/projectimages/FOAS/PQ_AWKvsANX_iscore.png)
+![Facet Boxplots, I Scores](/projectimages/FOAS/PQ_AWKvsANX_iscore.png)
 
 Surprisingly, most of the different types of students have similar academic standings. People who do not have awkwardness nor anxiety (aka souless robots) seem to perform slightly better on average, as more of those students are skewed towards the upper range of `i_score` values.
 
-Below are a number of pie charts, each displaying the percentage of students in each category who exhibit a particular trait as well as the sample size of each category. I want to eventually write a web app to allow viewers to change graph variables on-the-fly, but I have other stuff I would rather do at the moment. Feel free to run the code below in a Google Colab session and mess with the data yourself if you wish to see other traits.
+Below are a number of pie charts, each displaying the percentage of students in each category who exhibit a particular trait as well as the sample size of each category. I want to eventually write a web app to allow viewers to change graph variables on-the-fly, but for now feel free to run the code below in a Google Colab session and mess with the data yourself if you wish to see other traits.
 
 ```python
 import pandas as pd
@@ -526,15 +634,59 @@ awk_anx_facet_pies('trait_name')
 # -------------------------------------------------
 ```
 
-### Awk|Anx: Depression
-![Piechart, Depression](/projectimages/FOAS/PQ_AWKvsANX_depressed.png)
+### Awkwardness and Anxiety: Depression
+![Facet Piecharts, Depression](/projectimages/FOAS/PQ_AWKvsANX_depressed.png)
 
-### Awk|Anx: Introversion
-![Piechart, Introvert](/projectimages/FOAS/PQ_AWKvsANX_introvert.png)
+### Awkwardness and Anxiety: Introversion
+![Facet Piecharts, Introvert](/projectimages/FOAS/PQ_AWKvsANX_introvert.png)
 
-### Awk|Anx: Meditation
-![Piechart, Meditation](/projectimages/FOAS/PQ_AWKvsANX_meditation.png)
+### Awkwardness and Anxiety: Meditation
+![Facet Piecharts, Meditation](/projectimages/FOAS/PQ_AWKvsANX_meditation.png)
 
 
-# Summary
-You may notice a common theme of issues arising from having an insufficient sample size. With this format of project (small-scale web survey), 
+### Personal Traits
+
+![Correlation Matrix, Personal Traits](/projectimages/FOAS/PQ_corr_traits.png)
+
+```
+                  Average I Score
+Introvert ----------- 3.469
+Show Up Early ------- 3.424
+Social Anxious ------ 3.403
+Social Awkward ------ 3.401
+
+[Average] ----------- 3.395
+
+Cluttered ----------- 3.370
+Depressed ----------- 3.366
+Share Posts Often --- 3.333
+```
+
+You could say that this data is pretty... depressing. If you are dealing with depression, you should figure out how to get out of it if you want to excel in your academic life. Although that's **much** easier said than done, there are resources avaliable at most institutions for you to take advantage of. 
+
+Only around 50% of the respondents were asked if they had symptoms of depression, so take the overly strong correlation with a grain of salt. Nevertheless, it is difficult to prioritise school work when dealing with intense levels of dissociation, so you should figure out what issues are troubling you and how to get around them. :)
+
+Even though there are numerous articles online talking about how schools are made for extroverts, having introversion as a personality trait has a positive correlation with academic success. However, although it is possible to change surface-level social behaviors, you cannot really change your entire personality to suit your academic performance.
+
+The rest of the traits on the plot have low or no correlation with academic success. Despite this, addressing some of them may still help out your mental health. Being constantly cluttered could be a underlying source of stress for some, which has an effect on mental clarity. In addition, participating in a mild dopamine detox by avoiding mindless social media browsing is shown to result in higher levels of focus and productivity.
+
+<hr>
+[Back To Top](#top)
+# Part IV: Short Summary
+
+Even though correlation does not always mean causation, there are many meaningful correlations between things within students' control and their level of academic success. 
+
+<em>"But Dennis"</em>, you might say, <em>"If you want to get good grades, just study the material and show up to class, right?"</em>
+
+That is totally correct, but in addition, there are certain lifestyle habits that impeade or facilitate students' ability to do work at their highest potential:
+
+
+<em>Ways to improve:</em>
+- Participate in dieting, exercise, journaling, and/or meditation (in decending order of importance)
+- Listen to multiple different music artists
+
+
+<em>Ways to not improve:</em>
+- Drink coffee or energy drinks
+- Be depressed (just... uh... think happy thoughts, it's that easy)
+- Indulge in social media
