@@ -98,7 +98,7 @@ analytics:
 # Site Author
 author:
   name             : "Dennis Farmer"
-  avatar           : "/bio_photo_placeholder.png"
+  avatar           : "/profile_zoomed.jpg"      #"/bio_photo_placeholder.png"
   #avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "\"What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?\""
   location         : "Clio, MI"
@@ -109,13 +109,13 @@ author:
   codepen:
   dribbble:
   flickr:
-  facebook:
+  facebook: "dennis.farmer.526"
   foursquare:
   #github: "dennisfarmer"
   gitlab:
   google_plus:
   keybase:
-  instagram:
+  instagram: "@djdade01"
   lastfm:
   linkedin: #"first-last-796877175"
   pinterest:
@@ -130,24 +130,27 @@ author:
   youtube: # "https://youtube.com/c/MichaelRoseDesign" 
 
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
-    - label: "Website"
+    - label: "MuseScore"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://musescore.com/dennisfarmer/sheetmusic"
+    #- label: "Email"
+      #icon: "fas fa-fw fa-envelope-square"
+      #url: "mailto:your.name@email.com"
+    #- label: "Website"
+      #icon: "fas fa-fw fa-link"
+      #url: "https://your-website.com"
+    #- label: "Twitter"
+      #icon: "fab fa-fw fa-twitter-square"
+      #url: "https://twitter.com/"
+    #- label: "Facebook"
+      #icon: "fab fa-fw fa-facebook-square"
+      #url: "https://facebook.com/"
+    #- label: "GitHub"
+      #icon: "fab fa-fw fa-github"
+      #url: "https://github.com/"
+    #- label: "Instagram"
+      #icon: "fab fa-fw fa-instagram"
+      #url: "https://instagram.com/"
 
       
 # Site Footer
