@@ -682,7 +682,7 @@ That is totally correct, but in addition, there are certain lifestyle habits tha
 
 
 <em>Ways to improve:</em>
-- Participate in dieting, exercise, journaling, and/or meditation (in decending order of importance)
+- Participate in dieting, exercise, journaling, and/or meditation
 - Listen to multiple different music artists
 
 
