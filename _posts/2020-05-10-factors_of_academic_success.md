@@ -117,7 +117,9 @@ A Google Forms Survey was used to allow students to opt-in to providing their ac
 </table>
 
 <hr>
+
 [Back To Top](#top)
+
 # Part I: Data Cleaning
 
 ```python
@@ -265,7 +267,9 @@ The following file has been saved to "/home/dennisfarmer/Github/Factors-of-Acade
 surveydata.csv
 ```
 <hr>
+
 [Back To Top](#top)
+
 # Part II: Data Transformation
 
 ```python
@@ -453,7 +457,9 @@ def get_avg_i_scores(dataframe, dummy, i_col='i_score'):
     return pd.Series(avg_scores)
 ```
 <hr>
+
 [Back To Top](#top)
+
 # Part III: Data Analysis and Visualization
 
 ### Distribution of Grades
@@ -671,7 +677,9 @@ Even though there are numerous articles online talking about how schools are mad
 The rest of the traits on the plot have low or no correlation with academic success. Despite this, addressing some of them may still help out your mental health. Being constantly cluttered could be a underlying source of stress for some, which has an effect on mental clarity. In addition, participating in a mild dopamine detox by avoiding mindless social media browsing is shown to result in higher levels of focus and productivity.
 
 <hr>
+
 [Back To Top](#top)
+
 # Part IV: Short Summary
 
 Even though correlation does not always mean causation, there are many meaningful correlations between things within students' control and their level of academic success. 
