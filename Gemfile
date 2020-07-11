@@ -17,6 +17,8 @@ gem "github-pages", group: :jekyll_plugins
 gem "jekyll"
 gem "minimal-mistakes-jekyll"
 gem "jekyll-font-awesome-sass"
+gem "activesupport", ">=6.0.3.1"
+
 
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"
