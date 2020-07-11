@@ -100,7 +100,7 @@ author:
   name             : "Dennis Farmer"
   avatar           : "/profile_zoomed.jpg"      #"/bio_photo_placeholder.png"
   #avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "\"What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?\""
+  bio              : "\"What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?\"\n\nAll of my social media accounts that I don't actually use 😂:"
   location         : "Clio, MI"
   email            :
   github           : "dennisfarmer"
@@ -117,21 +117,24 @@ author:
   keybase:
   instagram: "djdade01"
   lastfm:
-  linkedin: #"first-last-796877175"
+  linkedin: "dennis-farmer-572a831a9" 
   pinterest:
   soundcloud:
   stackoverflow: # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
-  steam: # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
+  steam: "kitabatake" # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
   tumblr:
-  twitter:
+  twitter: "DenisJ391"
   vine:
   weibo:
   xing:
-  youtube: # "https://youtube.com/c/MichaelRoseDesign" 
+  youtube: "https://www.youtube.com/channel/UCVTqeQ3AVXLKWxB8RRc0wQQ" # "https://youtube.com/c/MichaelRoseDesign" 
 
   links:
+    - label: "Spotify"
+      icon: "fab fa-fw fa-spotify"
+      url: "https://open.spotify.com/user/q4z0j4esasiti2mfuj6duqf24"
     - label: "MuseScore"
-      icon: "fas fa-fw fa-link"
+      icon: "fas fa-fw fa-music"
       url: "https://musescore.com/dennisfarmer/sheetmusic"
     #- label: "Email"
       #icon: "fas fa-fw fa-envelope-square"
@@ -246,6 +249,8 @@ paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
+font-awesome:
+  assets: true
 
 # Plugins (previously gems:)
 plugins:
@@ -254,6 +259,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-font-awesome-sass
 
 # mimic GitHub Pages with --safe
 whitelist:
