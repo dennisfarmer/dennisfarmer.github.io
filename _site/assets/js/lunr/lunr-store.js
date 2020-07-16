@@ -10,4 +10,10 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/exploring-github-api/",
         "teaser": null
+      },{
+        "title": "Finally Starting a Blog",
+        "excerpt":"I don’t mean to flex, but I scored in the 99th percentile on the SAT reading and writing portion, so I like to think I’m a pretty cool rat. Although my writing skills were impressive back in high school, adult life combined with the stress of trying to be a...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blogs/001_finally_starting_a_blog/",
+        "teaser": null
       }]
