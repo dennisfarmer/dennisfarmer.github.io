@@ -16,4 +16,10 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/blogs/001_finally_starting_a_blog/",
         "teaser": null
+      },{
+        "title": "A Pseudointellectual's Perspective on Free Will",
+        "excerpt":"Assuming free will is nonexistant, our brains are directed by the sensations they feel, whether they be feelings of security, satisfaction, contentment, pleasure, etc… Free will quickly becomes a very scary thing to think about, because if it is merely an illusion, we are essentially watching a very terrifying and...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blogs/002_a_pseudointellectuals_perspective_on_free_will/",
+        "teaser": null
       }]
