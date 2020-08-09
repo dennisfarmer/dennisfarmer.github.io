@@ -22,4 +22,10 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/blogs/002_a_pseudointellectuals_perspective_on_free_will/",
         "teaser": null
+      },{
+        "title": "Structuring my Habits",
+        "excerpt":"To the surprise of literally no one, COVID-19 had put quite the spell on every person’s mental health. Everyone I know jokes about how unproductive they have been, and how they waste so much time on video games, Netflix, and sleeping (the latter of which is a popular symptom of...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blogs/003_structuring_my_habits/",
+        "teaser": null
       }]
