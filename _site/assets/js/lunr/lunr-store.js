@@ -22,4 +22,10 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/blogs/002_a_pseudointellectuals_perspective_on_free_will/",
         "teaser": null
+      },{
+        "title": "Emotions and Anxiety",
+        "excerpt":"If you know me, you would know that I am really sensitive around dealing with emotions. This part of me sort of defines my internal world, because I understand how deep the world of emotion can really go. Right now, I am voluntarily not in a relationship. Since I am...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blogs/003/",
+        "teaser": null
       }]
