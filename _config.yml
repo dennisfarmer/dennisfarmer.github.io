@@ -100,7 +100,7 @@ author:
   name             : "Dennis Farmer"
   avatar           : "/profile_zoomed.jpg"      #"/bio_photo_placeholder.png"
   #avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "\"What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?\"\n\nAll of my social media accounts that I don't actually use 😂:"
+  bio              : "\"What if we could use Big Data, AI, and Machine Learning to bubble sort buzzword users to the bottom of the social hierarchy?\""
   location         : "Clio, MI"
   email            :
   github           : "dennisfarmer"
