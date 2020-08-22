@@ -5,7 +5,7 @@ date: 2020-08-21
 permalink: /blogs/004_big_announcement/
 header:
   image: "/blogimages/004_big_announcement/header.jpg"
-excerpt: "I'm gonna upload my awkward brain matter to the inter-waves and you can't stop me hehe"
+excerpt: "I'm gonna upload my awkward brain matter to the inter-waves and you can't stop me"
 
 ---
 
