@@ -12,7 +12,7 @@
 
 
 github: [metadata]
-
+future: false 
 
 theme                    : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
