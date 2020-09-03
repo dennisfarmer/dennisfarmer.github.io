@@ -12,7 +12,7 @@
 
 
 github: [metadata]
-
+future: false 
 
 theme                    : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
@@ -20,11 +20,11 @@ minimal_mistakes_skin    : "contrast" #"default", "air", "aqua", "contrast", "da
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Dennis Farmer's Portfolio"
+title                    : "Dennis Farmer's Cyberspace"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Dennis Farmer"
-description              : "Personal Website for Projects and Stuff"
+description              : "Personal Website for Blog Posts and Projects"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
