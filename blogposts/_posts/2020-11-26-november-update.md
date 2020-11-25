@@ -35,4 +35,8 @@ I could type on for hours, but I'm clearly rambling right now so I'll just cut i
 
 The site does have some real potential to become something expressive, as long as I work to fill it with quality content. My new-year's resolution will not be to *LiFt wEiGhTs aNd gO GyM*, rather it will be to educate myself on current and past national and international affairs. I find myself having numerous gaps in knowlege of what the hell is going on in the world around me, so reading newssites and such should make me a much more well-rounded person. Once gyms open, I'll go to them *(don't worry, I'll get around to it)*. Enough rambling, see you later! Bye queen!!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UGEYaRyLgLg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+##### Extra: Caroline Konstar random video bc she's relatable:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3skRmC5uncI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+*She is bae fr fr*
