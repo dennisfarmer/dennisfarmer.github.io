@@ -2,7 +2,7 @@
 
 title: "My Recent Epiphany"
 date: 2020-09-03
-permalink: /blogs/005_my_recent_epiphany/
+permalink: /brainposts/005_my_recent_epiphany/
 header:
   image: "/blogimages/005_my_recent_epiphany/header.jpg"
 excerpt: "Finally figured out what autopilot tunnel vision bunny rabbit REALLY means"

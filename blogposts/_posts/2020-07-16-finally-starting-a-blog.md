@@ -2,7 +2,7 @@
 
 title: "Finally Starting a Blog"
 date: 2020-07-16
-permalink: /blogs/001_finally_starting_a_blog/
+permalink: /blogposts/001_finally_starting_a_blog/
 header:
   image: "/blogimages/001_finally_starting_a_blog/header.jpg"
 excerpt: "Sharing my perspective of the human condition with everyone who stalks my website"

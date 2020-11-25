@@ -2,7 +2,7 @@
 
 title: "Calculus Is Not That Difficult"
 date: 2021-08-14
-permalink: /blogs/004_calculus_is_not__that_difficult/
+permalink: /brainposts/004_calculus_is_not__that_difficult/
 header:
   image: "/blogimages/004_calculus_is_not_that_difficult/header.jpg"
 excerpt: "How insecurities can impair our ability to view things objectively"

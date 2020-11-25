@@ -2,7 +2,7 @@
 
 title: "A Pseudointellectual's Perspective on Free Will"
 date: 2020-07-17
-permalink: /blogs/002_a_pseudointellectuals_perspective_on_free_will/
+permalink: /brainposts/002_a_pseudointellectuals_perspective_on_free_will/
 header:
   image: "/blogimages/002_a_pseudointellectuals_perspective_on_free_will/header.jpg"
 excerpt: "An insight into our freedom of choice and how it doesn't actually exist"
