@@ -1,7 +1,7 @@
 ---
 
 title: "My Recent Epiphany"
-date: 2020-09-03
+date: 2030-09-03
 permalink: /brainposts/005_my_recent_epiphany/
 header:
   image: "/blogimages/005_my_recent_epiphany/header.jpg"

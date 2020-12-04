@@ -1,7 +1,7 @@
 ---
 
 title: "Finally Starting a Blog"
-date: 2020-07-16
+date: 2030-07-16
 permalink: /blogposts/001_finally_starting_a_blog/
 header:
   image: "/blogimages/001_finally_starting_a_blog/header.jpg"

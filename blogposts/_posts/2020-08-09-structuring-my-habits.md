@@ -1,7 +1,7 @@
 ---
 
 title: "Structuring my Habits"
-date: 2020-08-09
+date: 2030-08-09
 permalink: /blogs/003_structuring_my_habits/
 header:
   image: "/blogimages/003_structuring_my_habits/header.jpg"

@@ -1,7 +1,7 @@
 ---
 
 title: "November Update!"
-date: 2020-11-25
+date: 2030-11-25
 permalink: /blogposts/006_november_update/
 header:
   image: "/blogimages/006_november_update/header.jpg"

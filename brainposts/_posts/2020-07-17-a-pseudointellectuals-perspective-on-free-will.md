@@ -1,7 +1,7 @@
 ---
 
 title: "A Pseudointellectual's Perspective on Free Will"
-date: 2020-07-17
+date: 2030-07-17
 permalink: /brainposts/002_a_pseudointellectuals_perspective_on_free_will/
 header:
   image: "/blogimages/002_a_pseudointellectuals_perspective_on_free_will/header.jpg"
