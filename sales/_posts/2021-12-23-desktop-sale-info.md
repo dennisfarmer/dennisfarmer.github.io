@@ -11,6 +11,8 @@ excerpt: "Some info about the PC parts that I'm planning on selling"
 
 <img src="/sales/images/desktop/527.jpg">
 
+# Computer Parts for Sale
+
 <!-- press enter to insert hyperlink? look at vim plugins -->
 
 Preference is given to bulk orders; prices can be negotiated slightly if you want to buy multiple things.
