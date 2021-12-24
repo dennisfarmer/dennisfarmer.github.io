@@ -4,7 +4,7 @@
 
 JEKYLL_FLAGS= --livereload --trace
 
-
+# gh auth login
 
 serve:
 	# site located at http://localhost:4000
