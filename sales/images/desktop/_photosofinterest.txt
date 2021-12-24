@@ -1,0 +1,24 @@
+SSD:
+540 <- best
+531
+497
+
+IO
+510
+
+case
+512
+
+RAM
+530
+
+header
+527 <- best
+525
+524
+
+cpu/cooler
+650
+
+gpu
+651

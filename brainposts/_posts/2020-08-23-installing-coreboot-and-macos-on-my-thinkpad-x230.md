@@ -1,7 +1,7 @@
 ---
 
 title: "How to install Coreboot and MacOS on a Thinkpad X230"
-date: 2021-08-23
+date: 3020-08-23
 permalink: /brainposts/005_how_to_install_coreboot_and_macos_on_a_thinkpad_x230/
 header:
   image: "/blogimages/005_how_to_install_coreboot_and_macos_on_a_thinkpad_x230/header.jpg"
@@ -9,7 +9,7 @@ excerpt: ""
 
 ---
 
-
+My x230 got stolen so progress on this is postponed until my t430 comes in the mail.
 
 
 ```

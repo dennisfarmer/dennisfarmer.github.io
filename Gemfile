@@ -18,6 +18,8 @@ gem "jekyll"
 gem "minimal-mistakes-jekyll"
 gem "jekyll-font-awesome-sass"
 gem "activesupport", ">=6.0.3.1"
+# Only needed for ruby version 3+
+#gem "webrick", "~> 1.7"
 
 
 # The following plugins are automatically loaded by the theme-gem:
@@ -31,3 +33,4 @@ gem "activesupport", ">=6.0.3.1"
 # If you have any other plugins, put them here!
 group :jekyll_plugins do
 end
+

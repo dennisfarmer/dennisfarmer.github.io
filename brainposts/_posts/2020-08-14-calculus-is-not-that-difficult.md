@@ -1,7 +1,7 @@
 ---
 
 title: "Calculus Is Not That Difficult"
-date: 2021-08-14
+date: 3020-08-14
 permalink: /brainposts/004_calculus_is_not__that_difficult/
 header:
   image: "/blogimages/004_calculus_is_not_that_difficult/header.jpg"
