@@ -1,6 +1,6 @@
 ---
 title: "Exploring the GitHub API"
-date: 2030-05-14
+date: 2020-05-14
 
 [comment]: # (tags: [python, api])
 
