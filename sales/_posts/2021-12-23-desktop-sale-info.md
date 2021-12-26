@@ -53,7 +53,7 @@ Not a terrible CPU, but for modern titles I would look for something better (8 t
 <img src="/sales/images/desktop/650.jpg">
 Corsair H60\\
 Liquid CPU Cooler, 120mm Radiator w/ 120mm Fan \\
-Radiator is the black square on left side of picture, fan is between radiator and fan
+Radiator is the black square on left side of picture, fan is between radiator and case
 
 **Price: $30**, discounted to $15 if bought with CPU
 
@@ -66,7 +66,7 @@ Gigabyte Mini ITX OC\\
 
 Notes:
 
-Will run out of VRAM on demanding AAA titles (specifically Call of Duty Warzone in my experience) but runs great on games that don't eat VRAM. Far Cry 4 runs at 60 FPS on Ultra Settings at 1080p. Do your own research on whether this GPU can run the games you want to play.
+Will run out of VRAM on demanding AAA titles (specifically Call of Duty Warzone in my experience) but runs great on games that don't eat VRAM. For instance, Far Cry 4 runs at 60 FPS on Ultra Settings at 1080p. Do your own research on whether this GPU can run the games you want to play.
 
 **Price: $169**
 
