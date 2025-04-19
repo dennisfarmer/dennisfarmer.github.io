@@ -1,0 +1,484 @@
+.section.featured.two-col .latest-item {
+  display: flex;
+  flex-direction: column;
+}
+.section.featured.two-col .latest-item .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background-color: #2A2A2A;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.section.featured.two-col .latest-item .card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.section.featured.two-col .latest-item .card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}
+.section.featured.two-col .latest-item .card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+.section.featured.two-col .latest-item .card-description {
+  margin: 0;
+  color: #CCCCCC;
+}
+body {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Card Grid Styles */
+.card-grid {
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+  /*grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.card {
+  background-color: #1F1F1F;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.card-snow-day {
+  font-size: 0.875rem;
+  color: #000000;
+  background-color: #07c4e1;
+  margin: 0.5rem 0;
+}
+
+.card-coming-soon {
+  font-size: 0.875rem;
+  color: #ff0000;
+  background-color: rgb(1, 46, 31);
+  margin: 0.5rem 0;
+}
+
+.card-sle {
+  font-size: 0.875rem;
+  color: #00d7d7;
+  background-color: rgb(1, 46, 31);
+  margin: 0.5rem 0;
+}
+
+.card-title {
+  margin: 0.75rem 0 0 0;
+  font-size: 1.25rem;
+  color: #E0E0E0;
+}
+.card-title a {
+  color: inherit;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+  border-radius: 4px;
+}
+.card-title a:hover {
+  background-color: #00AEEF;
+  color: #fff;
+}
+
+/* Responsive Images in Posts */
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 20px auto;
+}
+
+p {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+/*
+main {
+    flex: 1;
+    margin: 5px auto auto 5px ;
+    text-align: left;
+    font-weight: 300;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: start;
+}
+*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /*margin: 20px auto auto 20px;*/
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+
+.inter-text {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+.link-inherit, .link-inherit:visited, .link-inherit:hover, .link-inherit:active {
+    color: inherit;
+    text-decoration: none;
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+header {
+    background-color: #1F1F1F;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    font-weight: 200;
+    top: 0;
+    z-index: 1000;
+    color: #00AEEF;
+}
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main a {
+    color: #00ffcc; 
+    text-decoration: none;
+}
+
+
+.music p {
+    padding-left: 25%;
+    text-align: center;
+    padding-right: 25%;
+    position: relative;
+    overflow: scroll;
+}
+
+.score {
+  width: 60em;
+  height: 80em;
+  max-width: 70vw;
+
+}
+
+audio {
+  width: 60em;
+  max-width: 70vw;
+}
+
+iframe {
+  margin-top: 35px;
+  width: 60em;
+  height: 30em;
+  max-width: 70vw;
+}
+
+nav {
+    margin-top: 10px;
+}
+nav a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+}
+nav a:hover {
+    color: #00AEEF;
+}
+/* Active nav link */
+nav a[aria-current="page"] {
+    text-decoration: underline;
+}
+/* Card hover animation and layout */
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: inherit;
+    text-decoration: none;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-image {
+    width: 150px;
+    height: auto;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #CCCCCC;
+    margin-top: 0.5rem;
+}
+
+
+@media (max-width: 650px) {
+  .card {
+    flex-direction: column;
+  }
+  .card-image {
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: 30vw 30vw;
+    /*grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+}
+
+
+/* Responsive card layout */
+@media screen and (max-width: 1000px) {
+  .card {
+    flex-direction: column;
+  }
+  .card-image {
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.section {
+  background-color: #1F1F1F;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  max-width: 1000px;
+}
+
+.section.featured-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.section.featured-two-col .featured-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.section.featured-two-col .featured-item .section-heading {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.section.featured-two-col .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #2A2A2A;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  /*transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+}
+.section.featured-two-col .card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.section.featured-two-col .card-content {
+  flex: 1;
+  padding: 1rem;
+}
+.section.featured-two-col .card-content .card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+.section.featured-two-col .card-description {
+  margin: 0;
+  color: #CCCCCC;
+}
+
+.section-heading {
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.hero-content .profile-image {
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.hero-content {
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.view-all-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.hero h1 {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+}
+.hero p {
+    font-size: 1.125rem;
+}
+.section-button {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #00AEEF;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.section-button:hover {
+    background-color: #007bb5;
+}
+
+.education {
+  display: grid;
+  text-align: left;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.education .course-list {
+  display: block;
+}
+.education .course {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    position: relative;
+}
+/* Course title styling */
+.education .course-title {
+  flex: 0 0 30%;
+  margin: 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* Floating details box */
+.education .course-details {
+  position: absolute;
+  top: 0;
+  left: 35%;
+  width: 60%;
+  display: none;
+  background-color: #2A2A2A;
+  color: #E0E0E0;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.education .course:hover .course-details {
+  display: block;
+}
+@media (max-width: 800px) {
+  .education .course {
+    flex-direction: column;
+  }
+  .education .course-details {
+    position: static;
+    width: auto;
+    margin-top: 1rem;
+    box-shadow: none;
+  }
+}
+@media (max-width: 800px) {
+  .education .course {
+    flex-direction: column;
+  }
+  .education .course-details {
+    margin-left: 0;
+  }
+}
+.globe-container {
+    position: relative;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/Rotating_earth_animated.gif') no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1F1F1F;
+    color: #E0E0E0;
+    margin-top: 50px;
+}

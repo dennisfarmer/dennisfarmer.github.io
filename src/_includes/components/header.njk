@@ -1,0 +1,9 @@
+<header>
+  <!-- <h1 class="inter-text"><a href="/" class="link-inherit">dennisfarmer.dev</a></h1> -->
+  <nav>
+    <a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
+    <a href="/projects/" {% if page.url.indexOf('/projects/') == 0 %}aria-current="page"{% endif %}>Projects</a>
+    <a href="/music/" {% if page.url.indexOf('/music/') == 0 %}aria-current="page"{% endif %}>Music</a>
+    <a href="/blog/" {% if page.url.indexOf('/blog/') == 0 %}aria-current="page"{% endif %}>Blog</a>
+  </nav>
+</header>

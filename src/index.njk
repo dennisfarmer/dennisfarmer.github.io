@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+
+<section class="section hero">
+  <div class="hero-content">
+    <img src="/images/profile.png" alt="Dennis Farmer" class="profile-image">
+    <div class="hero-text">
+      <h1>I'm Dennis 👋</h1>
+      <p>Hello! I study Data Science and Music at the University of Michigan.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section featured-two-col">
+  <div class="featured-item">
+    <h2 class="section-heading">Featured Project</h2>
+      {% for project in collections.projects %}
+        {% if project.data.featured == true %}
+          <a href="{{ project.url }}" class="card">
+            {% if project.data.image %}
+            <img src="{{ project.data.image }}" alt="{{ project.data.title }}" class="card-image">
+            {% endif %}
+            <div class="card-content">
+              <h3 class="card-title">💻 {{ project.data.title }}</h3>
+              {% if project.data.description %}
+              <p class="card-description">{{ project.data.description }}</p>
+              {% endif %}
+            </div>
+          </a>
+        {% endif %}
+    {% endfor %}
+    <div class="view-all-buttons">
+      <a href="/projects/" class="section-button">View All Projects</a>
+    </div>
+  </div>
+  <div class="featured-item">
+    <h2 class="section-heading">Featured Music</h2>
+      {% for piece in collections.music %}
+        {% if piece.data.featured == true %}
+          <a href="{{ piece.url }}" class="card">
+            {% if piece.data.image %}
+            <img src="{{ piece.data.image }}" alt="{{ title }}" class="card-image">
+            {% endif %}
+            <div class="card-content">
+              <h3 class="card-title">🔊 {{ piece.data.title }}</h3>
+              {% if piece.data.description %}
+              <p class="card-description">{{ piece.data.description }}</p>
+              {% endif %}
+            </div>
+          </a>
+        {% endif %}
+    {% endfor %}
+    <div class="view-all-buttons">
+      <a href="/music/" class="section-button">View All Music</a>
+    </div>
+  </div>
+</section>
+
+<section class="education section">
+  <h2 class="section-heading">Education</h2>
+  <p><strong>University of Michigan College of Engineering</strong><br>Bachelor of Science in Engineering, Data Science (GPA: 3.87)</p>
+  <p>Activities: Michigan Data Science Team, EcoData, Michigan Tabletop Gaming Club, 16 Strong Project</p>
+  <h3>Courses Taken</h3>
+  <div class="course-list">
+    <div class="course">
+      <h4 class="course-title">EECS 445:<br>Intro to Machine Learning</h4>
+      <div class="course-details">
+        <p>linear regression, bias–variance tradeoff, neural networks (CNNs, RNNs, autoencoders), attention, transformers, decision trees, random forest, XGBoost, Gaussian mixture models, expectation–maximization (k-means), Markov decision processes, bandit algorithms, reinforcement learning</p>
+      </div>
+    </div>
+    <div class="course">
+      <h4 class="course-title">DATASCI 406:<br>Computational Methods in Statistics and Data Science</h4>
+      <div class="course-details">
+        <p>Monte Carlo methods, Bayesian statistics, MCMC (Metropolis–Hastings, Gibbs Sampling), dimension reduction, causal inference</p>
+      </div>
+    </div>
+    <!-- Add more courses as needed -->
+  </div>
+</section>
+
+<section class="contact section">
+  <h2 class="section-heading">Contact Me</h2>
+  <p>Reach me at <a href="mailto:dennis.farmer@example.com">dennis.farmer@example.com</a> or find me on <a href="https://github.com/dennisfarmer">GitHub</a> &amp; <a href="https://linkedin.com/in/dennisfarmer">LinkedIn</a>.</p>
+</section>
