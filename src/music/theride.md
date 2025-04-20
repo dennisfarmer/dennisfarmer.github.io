@@ -6,11 +6,11 @@ featured: false
 date: 2024-02-08
 ---
 
+![artwork](/images/theride.jpg)
+
 ## TheRide
 
 I think the turn signal on the campus busses sounds really nice, especially with the backdrop of a sunny fall day. In addition to Billy Magic and mourning doves, I also used some samples from State Azure's "Fragments", which complements the electronic turn signal of The Ride.
-
-![artwork](/images/theride.jpg)
 
 <audio controls>
   <source src="/audios/theride.mp3" type="audio/mpeg">

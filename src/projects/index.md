@@ -6,7 +6,7 @@ title: Projects
 ## Projects
 
 <div class="card-grid">
-{% for project in collections.projects %}
+{% for project in collections.projects | reverse %}
 {% if project.url != '/projects/' %}
 <a href="{{ project.url }}" class="card">
 {% if project.data.image %}

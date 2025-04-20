@@ -15,7 +15,7 @@ title: Home
 
 <section class="section featured-two-col">
   <div class="featured-item">
-    <h2 class="section-heading">Featured Project</h2>
+    <h2 class="section-heading">Projects</h2>
       {% for project in collections.projects %}
         {% if project.data.featured == true %}
           <a href="{{ project.url }}" class="card">
@@ -36,7 +36,7 @@ title: Home
     </div>
   </div>
   <div class="featured-item">
-    <h2 class="section-heading">Featured Music</h2>
+    <h2 class="section-heading">Music</h2>
       {% for piece in collections.music %}
         {% if piece.data.featured == true %}
           <a href="{{ piece.url }}" class="card">
@@ -59,15 +59,17 @@ title: Home
 </section>
 
 <section class="education section">
-  <h2 class="section-heading">Education</h2>
-  <p><strong>University of Michigan College of Engineering</strong><br>Bachelor of Science in Engineering, Data Science (GPA: 3.87)</p>
-  <p>Activities: Michigan Data Science Team, EcoData, Michigan Tabletop Gaming Club, 16 Strong Project</p>
-  <h3>Courses Taken</h3>
+  <h2 class="section-heading">🎓 Education</h2>
+  <p><strong>University of Michigan College of Engineering</strong><br>Bachelor of Science in Engineering, Data Science<br>Minor in Music<br>GPA: 3.87/4.00<br>Expected Graduation: May 2027</p>
+  <p>Activities: <a href="https://mdst.club/">Michigan Data Science Team</a>, <a href="https://michiganecodata.org/">EcoData</a>, <a href="https://sites.google.com/a/umich.edu/michigan-tabletop-gaming-club">Michigan Tabletop Gaming Club</a>, <a href="https://www.16strongproject.com/">16 Strong Project</a></p>
+
+  <!--
+  <h3>Coursework:</h3>
   <div class="course-list">
     <div class="course">
       <h4 class="course-title">EECS 445:<br>Intro to Machine Learning</h4>
       <div class="course-details">
-        <p>linear regression, bias–variance tradeoff, neural networks (CNNs, RNNs, autoencoders), attention, transformers, decision trees, random forest, XGBoost, Gaussian mixture models, expectation–maximization (k-means), Markov decision processes, bandit algorithms, reinforcement learning</p>
+        <p>linear classifiers, linear regression, logistic regression, bias–variance tradeoff, performance metrics, neural networks (CNNs, RNNs, autoencoders), attention, transformers, decision trees, random forest, boosting (Adaboost, XGBoost), maximum likelihood estimation, gaussian mixture models, expectation–maximization (k-means clustering), markov decision processes, bandit algorithms, reinforcement learning</p>
       </div>
     </div>
     <div class="course">
@@ -76,11 +78,33 @@ title: Home
         <p>Monte Carlo methods, Bayesian statistics, MCMC (Metropolis–Hastings, Gibbs Sampling), dimension reduction, causal inference</p>
       </div>
     </div>
-    <!-- Add more courses as needed -->
+    <div class="course">
+      <h4 class="course-title">STATS 425:<br>Probability Theory</h4>
+      <div class="course-details">
+        <p>asdfkl;</p>
+      </div>
+    </div>
+    <div class="course">
+      <h4 class="course-title">EECS 281:<br>Data Structures and Algorithms</h4>
+      <div class="course-details">
+        <p>asdfkjl</p>
+      </div>
+    </div>
   </div>
+-->
+<!-- Add more courses as needed -->
+
 </section>
 
+<section class="skills section">
+  <h2 class="section-heading">📚 Skills</h2>
+  <p>Programming Languages: C++, Python, R, SQL, Bash</p>
+  <p>Operating Systems: MacOS, Linux, Windows/WSL</p>
+  <p>Tools and Software: Git, Docker, Vim, Make, VSCode, GNU Debugger (gdb), Valgrind</p>
+</section>
+
+
 <section class="contact section">
-  <h2 class="section-heading">Contact Me</h2>
-  <p>Reach me at <a href="mailto:dennis.farmer@example.com">dennis.farmer@example.com</a> or find me on <a href="https://github.com/dennisfarmer">GitHub</a> &amp; <a href="https://linkedin.com/in/dennisfarmer">LinkedIn</a>.</p>
+  <h2 class="section-heading">👋 Contact Me</h2>
+  <p>Reach me at <a href="mailto:dennisfj@umich.edu">dennisfj@umich.edu</a> or find me on <a href="https://github.com/dennisfarmer">GitHub</a> &amp; <a href="https://linkedin.com/in/dennisfarmer">LinkedIn</a>.</p>
 </section>

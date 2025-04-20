@@ -6,17 +6,11 @@ date: 2021-10-16
 featured: false
 ---
 
-## Impassive
-
-Description
-
 ![artwork](/images/impassive.jpg)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-Y9Iod7U6B8?si=70XjKqQkhMNeKEfT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## Impassive
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HH0wMSKw8T0?si=you956edhLVDq617" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<embed class="score" src="/scores/impassive.pdf" type="application/pdf">
+[View GitHub Repository](https://github.com/dennisfarmer/deep-music-visualizer)
 
 A generative neural network script written by <a href="https://github.com/msieg">msieg</a> has been adapted to add video and audio enhancement to the resulting video.
 
@@ -34,6 +28,13 @@ For a surface-level explaination of the BigGAN magic used to generate the video,
 <a href="https://towardsdatascience.com/the-deep-music-visualizer-using-sound-to-explore-the-latent-space-of-biggan-198cd37dac9a">The Deep Music Visualizer: Using sound to explore the latent space of BigGAN</a>
 
 More examples: https://www.instagram.com/deep_music_visualizer/
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-Y9Iod7U6B8?si=70XjKqQkhMNeKEfT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HH0wMSKw8T0?si=you956edhLVDq617" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<embed class="score" src="/scores/impassive.pdf" type="application/pdf">
+
 
 ## Installation
 
