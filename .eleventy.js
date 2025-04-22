@@ -8,9 +8,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "public/presentations": "presentations" });
   eleventyConfig.addPassthroughCopy({ "public/resume.pdf": "resume.pdf" });
   eleventyConfig.addPassthroughCopy("CNAME");
-  eleventyConfig.addCollection("posts", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/posts/*.md");
-  });
+  //eleventyConfig.addCollection("posts", function(collectionApi) {
+    //return collectionApi.getFilteredByGlob("src/posts/*.md");
+  //});
   eleventyConfig.addCollection("projects", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/projects/*.md");
   });
