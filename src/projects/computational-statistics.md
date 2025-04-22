@@ -18,6 +18,8 @@ Free-roaming domestic cats are a source of ecological and social concern, contri
 
 Based on [*"Movement Patterns of Roaming Companion Cats in Denmark - A Study Based on GPS Tracking"*, by Jensen et al.](https://pubmed.ncbi.nlm.nih.gov/35883297/)
 
+["The Outdoor Cat: Neighborhood Mascot or Menace?", The New York Times](https://www.nytimes.com/2022/08/02/style/outdoor-cats.html)
+
 <!--
 <embed class="presentation" src="/presentations/computational-statistics.pdf" type="application/pdf">
 -->
