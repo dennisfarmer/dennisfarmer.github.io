@@ -59,6 +59,37 @@ body {
     flex-direction: column;
 }
 
+.light-mode {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.light-mode section {
+  background-color: rgba(1, 173, 195, 0.6);
+}
+
+.light-mode header {
+    background-color: #FFFFFF;
+}
+.light-mode footer {
+    background-color: #FFFFFF;
+}
+.light-mode a {
+    color: #0232C2;
+}
+.light-mode a:visited {
+    color: #0232C2;
+}
+.light-mode nav a {
+    color: #000000;
+}
+
+.light-mode h1 {
+    color: #000000;
+}
+.light-mode h2 {
+    color: #000000;
+}
+
 /* Card Grid Styles */
 .card-grid {
   display: grid;
