@@ -12,6 +12,8 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
   <script type="text/javascript">
       window.onload = function() {
+        document.body.classList.toggle("light-mode");
+        localStorage.setItem("theme", isLightMode ? "light" : "dark");
         const theme = localStorage.getItem("theme");
         if (theme === "light") {
           document.getElementById("theme-toggle").textContent = "🌙";
