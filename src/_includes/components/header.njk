@@ -4,6 +4,9 @@
     <a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
     <a href="/projects/" {% if page.url.indexOf('/projects/') == 0 %}aria-current="page"{% endif %}>Projects</a>
     <a href="/music/" {% if page.url.indexOf('/music/') == 0 %}aria-current="page"{% endif %}>Music</a>
+    <button style="position:absolute;top:0;right:0;margin:10px;background:none;border:none;padding:0;cursor:pointer" class="link-inherit" id="theme-toggle" onclick="toggleLightMode()"> 
+      🔆
+    </button>
     <!--
     <a href="/posts/" {% if page.url.indexOf('/posts/') == 0 %}aria-current="page"{% endif %}>Posts</a>
     -->
