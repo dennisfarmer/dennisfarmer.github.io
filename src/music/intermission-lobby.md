@@ -20,6 +20,8 @@ Welcome to SLP Theaters, where the concession stand is alive with the buzz of in
 
 <embed class="score" src="/scores/intermission-lobby.pdf" type="application/pdf">
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fUxK9KjhQn0?si=mBP9RMXx5SjCQjAs&amp;start=274" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TH2j1YnIne0?si=BunJLzggXNOcdKHd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1HaY1aVg0Q4?si=tsf4pezzFkrQI3VE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
