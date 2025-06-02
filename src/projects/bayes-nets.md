@@ -16,7 +16,10 @@ In the end, we decided that we had learned a lot, but we didn't have a clear way
 
 [View GitHub Repository](https://github.com/dennisfarmer/bayes-nets/tree/main)
 
-The repository above contains code developed for a research project I worked on with philosopher in residence Dr. Patrick Grim, as well as with other students from various backgrounds, at the UM Center for Complex Systems, involving the modeling scientific theories as causal Bayesian networks. We would like to encode a "theory of the world" as a network of statements with differing degrees of belief, with statements being connected by directed arrows to represent "conceptual support": A->B says that if there was high evidence that A was to be true, then B is likely true as well, and if A were to be disconfirmed, we would have less belief in B. This theory of the world would accept a stream of evidence from the real world, and use this evidence to adapt our theory to closer match the world.
+The repository above contains code developed for a research project I worked on with philosopher in residence Dr. Patrick Grim, as well as with other students from various backgrounds, at the UM Center for Complex Systems. 
+
+Our project involved the modeling of scientific theories as causal Bayesian networks. We would like to encode a "theory of the world" as a network of statements with differing degrees of belief, with statements being connected by directed arrows to represent "conceptual support": A->B says that if there was high evidence that A was to be true, then B is likely true as well, and if A were to be disconfirmed, we would have less belief in B. This theory of the world would accept a stream of evidence from the real world, and use this evidence to adapt our theory to closer match the world.
+
 
 <embed class="presentation" src="/presentations/gcastle-notes.pdf" type="application/pdf">
 
