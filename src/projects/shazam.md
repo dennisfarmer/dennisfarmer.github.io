@@ -19,7 +19,6 @@ This project will combine elements of Machine Learning, Signal Analysis, App Dev
 
 ## Timeline
 
-Subject to changes.
 ![Outline](/images/shazam_outline.png)
 
 ## Presentation Slides
