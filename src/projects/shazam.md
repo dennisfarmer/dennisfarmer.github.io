@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: Roaming Behavior of Domestic Cats
-image: /images/roaming-cat.webp
+title: Shazamesque
+image: /images/f25-shazam.png
 date: 2025-09-07
 featured:
 ---
