@@ -3,7 +3,7 @@ layout: layouts/base.njk
 title: Shazamesque
 image: /images/f25-shazam.png
 date: 2025-09-07
-featured:
+featured: true
 ---
 
 ![MDST](/images/mdst-header.png)

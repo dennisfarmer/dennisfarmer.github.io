@@ -4,7 +4,7 @@ title: Academia
 date: 2022-09-12
 image: /images/academia.jpg
 tag: SLE
-featured: false
+featured: true
 ---
 
 ![artwork](/images/academia.jpg)
