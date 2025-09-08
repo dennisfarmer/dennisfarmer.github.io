@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: TheRide
-image: /images/theride.jpg
+title: Flamethrower
+image: /images/flamethrower.jpg
 featured: true
 date: 2025-09-07
 ---

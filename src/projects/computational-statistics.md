@@ -3,7 +3,7 @@ layout: layouts/base.njk
 title: Roaming Behavior of Domestic Cats
 image: /images/roaming-cat.webp
 date: 2024-12-19
-featured:
+featured: true
 ---
 
 ![Preview](/images/roaming-cat.webp)
