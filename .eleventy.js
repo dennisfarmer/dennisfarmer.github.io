@@ -1,4 +1,12 @@
+const markdownItKatex = require("@vscode/markdown-it-katex").default;
+const markdownIt = require("markdown-it");
+
+//export default function(eleventyConfig) {
 module.exports = function(eleventyConfig) {
+  const md = markdownIt({ html: true, linkify: true })
+    .use(markdownItKatex);
+  eleventyConfig.setLibrary("md", md);
+
   eleventyConfig.addPassthroughCopy({ "src/style.css": "css/style.css" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
@@ -8,9 +16,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "public/presentations": "presentations" });
   eleventyConfig.addPassthroughCopy({ "public/dennis_farmer_resume.pdf": "dennis_farmer_resume.pdf" });
   eleventyConfig.addPassthroughCopy("CNAME");
-  //eleventyConfig.addCollection("posts", function(collectionApi) {
-    //return collectionApi.getFilteredByGlob("src/posts/*.md");
-  //});
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/posts/*.md");
+  });
   eleventyConfig.addCollection("projects", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/projects/*.md");
   });

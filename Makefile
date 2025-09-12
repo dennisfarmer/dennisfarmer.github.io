@@ -11,3 +11,11 @@ install:
 
 build_prod:
 	npm eleventy
+
+install_tex_support:
+	#https://jsr.io/@vrugtehagel/eleventy-tex
+	npm install @vrugtehagel/eleventy-tex
+	npx jsr add @vrugtehagel/eleventy-tex
+	# modify .eleventy.js
+	npm install @vscode/markdown-it-katex
+
