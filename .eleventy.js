@@ -16,6 +16,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "public/scores": "scores" });
   eleventyConfig.addPassthroughCopy({ "public/presentations": "presentations" });
   eleventyConfig.addPassthroughCopy({ "public/dennis_farmer_resume.pdf": "dennis_farmer_resume.pdf" });
+  eleventyConfig.addPassthroughCopy({ "public/dennisfj.sh": "dennisfj.sh" });
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/posts/*.md");

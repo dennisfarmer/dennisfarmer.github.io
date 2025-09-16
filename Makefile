@@ -1,6 +1,9 @@
 build:
 	npx eleventy --serve
 
+script:
+	wget https://raw.githubusercontent.com/dennisfarmer/dotfiles/refs/heads/main/dennisfj.sh -O ./public/dennisfj.sh
+
 push:
 	git add .
 	git commit -m "updated website"
@@ -18,4 +21,3 @@ install_tex_support:
 	npx jsr add @vrugtehagel/eleventy-tex
 	# modify .eleventy.js
 	npm install @vscode/markdown-it-katex
-
