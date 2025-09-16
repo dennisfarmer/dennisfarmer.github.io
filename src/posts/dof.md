@@ -40,7 +40,7 @@ The residuals live in a lower dimensional space than the errors. $(I-H)$ is an o
 
 $n - \mathrm{dim}(\mathrm{col}(X)) = n-(p+1) = n-p-1$
 
-$\hat\sigma_\epsilon$ is computed by dividing the sum of squared residuals (RSS) by the degrees of freedom (not n-1 if have access to epsilon, we instead have access to a project on epsilon, so we use dim(col(X) = n-p-1, which is the degrees of freedom for the residual vector $e$.
+$\hat\sigma_\epsilon$ is computed by dividing the sum of squared residuals (RSS) by the degrees of freedom (not n-1 if have access to epsilon), we instead have access to a project on epsilon, so we use dim(col(X) = n-p-1, which is the degrees of freedom for the residual vector $e$.
 
 Intuition:
 
@@ -55,7 +55,7 @@ SD($\hat\beta_j$) can be estimated using se($\hat\beta_j$), the standard error f
 
 ## A new t Statistic
 
-Note: the context of the rest of these notes is for constructing a hypothesis test for $\hat\beta_j$. Currently learning this right now in lecture (career fair was worth it but gotta catch up on lecture recordings 😅), but basically $\mathrm{H}_0: \beta_j = 0$, and we want to construct a test to see if, holding all other variables equal, two individuals who differe in variable $x_j$ by 1 unit are expected to differ in $Y$ by $\beta_j$ units, where $\beta_j$ might be something that isn't totally boring, like $0$. It'd be more interesting to see the coefficients of the underlying linear model that generated the data be something non-zero (like $\mathrm{H}_1: \beta_j = 1$), and we want to tell if that's the case.
+Note: the context of the rest of these notes is for constructing a hypothesis test for $\hat\beta_j$. Currently learning this right now in lecture (career fair was worth it but gotta catch up on lecture recordings 😅), but basically $\mathrm{H}_0: \beta_j = 0$, and we want to construct a test to see if, holding all other variables equal, two individuals who differe in variable $x_j$ by 1 unit are expected to differ in $Y$ by $\beta_j$ units, where $\beta_j$ might be something that isn't totally boring like $0$. It'd be more interesting to see the coefficients of the underlying linear model that generated the data be something non-zero (like $\mathrm{H}_1: \beta_j = 1$), and we want to tell if that's the case.
 
 $t_\mathrm{stat} = \frac{\hat\beta_j - \gamma_0}{\mathrm{se}(\hat\beta_j)}$
 
@@ -77,5 +77,4 @@ The larger $n$ is, the closer that $t_{\mathrm{stat}}$ will be to a standard nor
 
 The t distribution has heavier tails, with the most probability in the tails being when the degrees of freedom are the lowest. The intuition behind this is that when the degrees of freedom are low, there is something in the denominator that’s even more variable, causing large deviations from the center to be more common.
 
-
-
+There's various typos and non-sensical sentences if you read closely, but these are in-progress so I'll read through these and make additions and modifications as the course continues
