@@ -16,7 +16,7 @@ title: Home
 <section class="section featured-two-col">
   <div class="featured-item">
     <h2 class="section-heading">Projects</h2>
-      {% for project in collections.projects %}
+      {% for project in collections.projects | reverse %}
         {% if project.data.featured == true %}
           <a href="{{ project.url }}" class="card">
             {% if project.data.image %}
@@ -37,7 +37,7 @@ title: Home
   </div>
   <div class="featured-item">
     <h2 class="section-heading">Music</h2>
-      {% for piece in collections.music %}
+      {% for piece in collections.music | reverse %}
         {% if piece.data.featured == true %}
           <a href="{{ piece.url }}" class="card">
             {% if piece.data.image %}

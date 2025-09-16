@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "public/images": "images" });
+  eleventyConfig.addPassthroughCopy({ "public/videos": "videos" });
   eleventyConfig.addPassthroughCopy({ "public/audios": "audios" });
   eleventyConfig.addPassthroughCopy({ "public/scores": "scores" });
   eleventyConfig.addPassthroughCopy({ "public/presentations": "presentations" });
