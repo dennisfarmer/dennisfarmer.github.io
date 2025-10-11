@@ -13,7 +13,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "public/images": "images" });
   eleventyConfig.addPassthroughCopy({ "public/videos": "videos" });
   eleventyConfig.addPassthroughCopy({ "public/audios": "audios" });
+  eleventyConfig.addPassthroughCopy({ "public/music": "music" });
   eleventyConfig.addPassthroughCopy({ "public/scores": "scores" });
+  eleventyConfig.addPassthroughCopy({ "public/webamp": "webamp" });
   eleventyConfig.addPassthroughCopy({ "public/presentations": "presentations" });
   eleventyConfig.addPassthroughCopy({ "public/dennis_farmer_resume.pdf": "dennis_farmer_resume.pdf" });
   eleventyConfig.addPassthroughCopy({ "public/dennisfj.sh": "dennisfj.sh" });

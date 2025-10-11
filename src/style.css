@@ -37,7 +37,17 @@ body {
     /*
     background-color: #121212; 
     */
+    
+
+
+    /*
     background-color: #000000;
+    */
+
+    background: url('/images/assets/bg-pattern.jpg'), url('/images/assets/bg-static.jpg');
+    background-blend-mode: difference;
+    background-size:cover, contain;
+
     /*
     background-image: url('/images/stars.gif');
     background-size: cover;

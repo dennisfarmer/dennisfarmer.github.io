@@ -13,6 +13,44 @@ title: Home
   </div>
 </section>
 
+<div id="winamp-container" style="width:40px; height:40px; position:absolute; top:50%; left:7%;">
+      <!-- Webamp will attempt to center itself within this div -->
+</div>
+
+<script>
+  const Webamp = window.Webamp;
+  const webamp = new Webamp({
+    initialTracks: [
+      {
+        metaData: {
+          artist: "Hello Meteor",
+          title: "The House of the Sun",
+        },
+        url: "music/HelloMeteor_TheHouseoftheSun.mp3"
+      },
+      {
+        metaData: {
+          artist: "Hello Meteor",
+          title: "Rushing Green",
+        },
+        url: "music/HelloMeteor_RushingGreen.mp3"
+      },
+      {
+        metaData: {
+          artist: "Hello Meteor",
+          title: "South Shore Rain",
+        },
+        url: "music/HelloMeteor_SouthShoreRain.mp3"
+      },
+    ],
+    initialSkin: {
+        url: "webamp/base-2.91.wsz"
+    },
+  });
+  // Returns a promise indicating when it's done loading.
+  webamp.renderWhenReady(document.getElementById("winamp-container"));
+</script>
+
 <section class="section featured-two-col">
   <div class="featured-item">
     <h2 class="section-heading">Projects</h2>
