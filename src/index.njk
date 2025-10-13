@@ -6,7 +6,18 @@ section: homepage
 
 <section class="section hero">
   <div class="hero-content">
-    <img src="/images/profile.png" alt="Dennis Farmer" class="profile-image">
+    <div class="profile-image-container" id="profileImageContainer" title="click to time travel two weeks">
+      <img src="/images/profile.png" alt="Dennis Farmer" class="profile-image" id="profileImage">
+      <img src="/images/terminator.png" alt="Dennis Farmer Taking over the world" class="profile-image-hover" id="profileImageHover">
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('profileImageContainer');
+      container.addEventListener('click', function() {
+      container.classList.toggle('toggled');
+      });
+      });
+    </script>
     <div class="hero-text">
       <h1>I'm Dennis 👋</h1>
       <p>Hello! I study Data Science and Music at the University of Michigan.</p>
