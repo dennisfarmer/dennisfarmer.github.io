@@ -8,6 +8,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary("md", md);
 
   eleventyConfig.addPassthroughCopy({ "src/style.css": "css/style.css" });
+  eleventyConfig.addPassthroughCopy({ "src/fonts": "css/fonts" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "public/images": "images" });
