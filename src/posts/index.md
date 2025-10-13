@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Posts
+section: posts
 ---
 
 ## Posts
@@ -22,3 +23,4 @@ title: Posts
 {% endif %}
 {% endfor %}
 </div>
+<div style="height: 120vh;"></div>

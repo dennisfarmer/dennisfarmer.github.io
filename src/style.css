@@ -38,10 +38,81 @@ html {
   overscroll-behavior-x: auto;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /*margin: 20px auto auto 20px;*/
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/*
+body.posts {
+  background: url('/images/assets/bg-tfm.jpg'), url('/images/assets/bg-static.jpg');
+  background-blend-mode: difference;
+  background-position: center center;
+
+}
+
+body.projects {
+  background: url('/images/assets/bg-t.jpg'), url('/images/assets/bg-static.jpg');
+  background-blend-mode: difference;
+
+}
+
+body.music {
+  background: url('/images/assets/bg-fm.jpg'), url('/images/assets/bg-static.jpg');
+  background-blend-mode: difference;
+
+}
+  */
+
+.section {
+  /*
+  background-color: #1F1F1F;
+  */
+  background-color: rgba(31, 31, 31, 0.7);
+  padding: 2rem;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  width: fit-content;
+  
+  /*
+  max-width: 1000px;
+  */
+}
+
+section.hero {
+  background-image: url('/images/assets/t.png');
+  background-color: rgba(31, 31, 31, 0.7);
+  background-blend-mode: multiply;
+
+  padding: 2rem;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  width: fit-content;
+}
+
 body {
   /*
   background-color: #121212; 
   */
+  background: url('/images/assets/bg-pattern.jpg'), url('/images/assets/bg-static.jpg');
+  background-blend-mode: difference;
+  background-size:cover, contain;
+
   
 
 
@@ -49,9 +120,9 @@ body {
   background-color: #000000;
   */
 
-  background: url('/images/assets/bg-pattern.jpg'), url('/images/assets/bg-static.jpg');
-  background-blend-mode: difference;
-  background-size:cover, contain;
+  /*
+  background: url('/images/assets/bg-pattern-bessel-topo.jpg'), url('/images/assets/bg-static.jpg');
+  */
 
   /*
   background-image: url('/images/stars.gif');
@@ -74,6 +145,7 @@ body {
   flex-direction: column;
 }
 
+
 .light-mode {
     background-color: #FFFFFF;
     color: #000000;
@@ -82,17 +154,44 @@ body {
   background-color: rgba(1, 173, 195, 0.6);
 }
 
+.light-mode section.hero {
+  background-color: rgba(1, 173, 195, 0.6);
+  background-image: url('/images/assets/tw.png');
+}
+
+
+
 .light-mode header {
-    background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
+  background-color: rgba(1, 173, 195, 1);
 }
 .light-mode footer {
-    background-color: #FFFFFF;
+  /*background-color: #FFFFFF; */
+  background-color: rgba(1, 173, 195, 1);
 }
+
 .light-mode a {
-    color: #0232C2;
+  color: #0232C2
 }
+
 .light-mode a:visited {
-    color: #0232C2;
+  color: #0232C2
+}
+
+.light-mode header a {
+    /*color: #0232C2;*/
+    color: #FFFFFF;
+    /*
+    text-shadow: 1px 1px 1px #1F1F1F;
+    */
+}
+
+
+.light-mode header a:visited {
+    color: #FFFFFF;
+    /*
+    text-shadow: 1px 1px 1px #1F1F1F;
+    */
 }
 .light-mode nav a {
     color: #000000;
@@ -100,9 +199,21 @@ body {
 
 .light-mode h1 {
     color: #000000;
+    /*
+    text-shadow: 1px 1px 1px rgba(1, 173, 195, 1);
+    */
+}
+.light-mode p {
+    color: #000000;
+    /*
+    text-shadow: 1px 1px 10px rgba(1, 173, 195, 1);
+    */
 }
 .light-mode h2 {
     color: #000000;
+    /*
+    text-shadow: 1px 1px 10px rgba(1, 173, 195, 1);
+    */
 }
 
 /* Card Grid Styles */
@@ -214,19 +325,6 @@ main {
 }
 */
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    /*margin: 20px auto auto 20px;*/
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: auto;
-    padding-left: 5%;
-    padding-right: 5%;
-}
 
 
 
@@ -393,6 +491,7 @@ nav a[aria-current="page"] {
 
 .hero-text {
   flex: 1;
+
 }
 
 .hero h1 {
@@ -453,23 +552,6 @@ nav a[aria-current="page"] {
   justify-content: center;
 }
 
-.section {
-  /*
-  background-color: #1F1F1F;
-  */
-  background-color: rgba(31, 31, 31, 0.7);
-  padding: 2rem;
-  margin-left: 2vw;
-  margin-right: 2vw;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  width: fit-content;
-  
-  /*
-  max-width: 1000px;
-  */
-}
 
 
 .section.featured-two-col {

@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: dennis farmer [dot] dev
+section: homepage
 ---
 
 <section class="section hero">
@@ -13,11 +14,13 @@ title: dennis farmer [dot] dev
   </div>
 </section>
 
-<div id="winamp-container" style="width:40px; height:40px; position:absolute; top:50%; left:7%;">
+<!-- width:40px -->
+<div id="winamp-container" style="position:absolute; top:50%; left:7%;">
       <!-- Webamp will attempt to center itself within this div -->
 </div>
 
 <script>
+  const container = document.getElementById('webamp-container');
   const Webamp = window.Webamp;
   const webamp = new Webamp({
     initialTracks: [
@@ -46,9 +49,10 @@ title: dennis farmer [dot] dev
     initialSkin: {
         url: "webamp/base-2.91.wsz"
     },
+    container: container;
   });
   // Returns a promise indicating when it's done loading.
-  webamp.renderWhenReady(document.getElementById("winamp-container"));
+  webamp.renderWhenReady(container);
 </script>
 
 <section class="section featured-two-col">

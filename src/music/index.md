@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Music
+section: music
 ---
 
 ## My Music Compositions and Arrangements
@@ -38,3 +39,5 @@ title: Music
 {% endif %}
 {% endfor %}
 </div>
+
+<div style="height: 40vh;"></div>

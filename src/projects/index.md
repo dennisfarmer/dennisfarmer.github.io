@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Projects
+section: projects
 ---
 
 ## Projects
@@ -22,3 +23,4 @@ title: Projects
 {% endif %}
 {% endfor %}
 </div>
+<div style="height: 80vh;"></div>
