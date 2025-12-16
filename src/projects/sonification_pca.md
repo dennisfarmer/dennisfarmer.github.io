@@ -6,7 +6,7 @@ date: 2025-12-15
 featured: true
 ---
 
-# Sonification of PCA for the enhanced interpretability of a content-based music recommender system
+# Sonification of Principal Component Analysis for the enhanced interpretability of a content-based music recommender system
 
 Final project for PAT 462 - Digital Sound Synthesis, Fall 2025
 
@@ -32,27 +32,69 @@ This gives us a way to map a coordinate in PC space to its relative connection t
 
 Now that we have a way to relate the PCs to the original features. From here, we can perform an eyeball check to each of the sorted columns of the correlation loadings matrix. 
 
-- Principal Component 1:
-       - positively correlated with various rock and metal tags
-       - negatively correlated with rnb and electronic tags
-- Principal Component 2:
-       - positively correlated with sad, ambient, and mellow tags
-       - negatively correlated with party and catchy, tags
-- Principal Component 3:
-       - positively correlated with experimental and indie tags
-       - negatively correlated with soul, country, and easy listening tags
+### Principal Component 1:
+positively correlated with various rock and metal tags
+
+negatively correlated with rnb and electronic tags
+
+### Principal Component 2:
+positively correlated with sad, ambient, and mellow tags
+
+negatively correlated with party and catchy, tags
+
+### Principal Component 3:
+positively correlated with experimental and indie tags
+
+negatively correlated with soul, country, and easy listening tags
 
 We can then normalize each tag to be between 0.0 and 1.0, and take weighted averages of tag values (upscaled from PC coordinates) to define sonification parameter mappings.
 
-- Principal Component 1:
-       - positive: high filter cutoff, more gain on random notes to sound digital
-       - negative: low filter cutoff to sound more like popular / rock music, minimal random notes
-- Principal Component 2:
-       - positive: slow tempo, sad modes like Locrian, Phrygian, Aeolian, ...
-       - negative: fast tempo, happy modes like Lydian, Ionian, Mixolydian, ...
-- Principal Component 3:
-       - positive: many notes, using most or all of the scale degrees chosen by PC2
-       - positive: fewer notes to sound simpler, less experimental
+### Principal Component 1:
+positive: high filter cutoff, more gain on random notes to sound digital
+
+<audio controls>
+  <source src="/audios/sonification_pca/high_pc1.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+negative: low filter cutoff to sound more like popular / rock music, minimal random notes
+
+<audio controls>
+  <source src="/audios/sonification_pca/low_pc1.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+### Principal Component 2:
+positive: slow tempo, sad modes like Locrian, Phrygian, Aeolian, ...
+
+<audio controls>
+  <source src="/audios/sonification_pca/high_pc2.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+negative: fast tempo, happy modes like Lydian, Ionian, Mixolydian, ...
+
+<audio controls>
+  <source src="/audios/sonification_pca/low_pc2.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+### Principal Component 3:
+positive: many notes, using most or all of the scale degrees chosen by PC2
+
+<audio controls>
+  <source src="/audios/sonification_pca/high_pc3.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+negative: fewer notes to sound simpler, less experimental
+
+<audio controls>
+  <source src="/audios/sonification_pca/low_pc3.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 
 
 See `sonification.ck` for implementation of selecting which feature tags are used for which parameters; it is mostly a trial-based process of seeing which parameters are useful to map to specific tags that correlate with specific principal components to craft an interpretable story, but I think I landed on a parameter mapping that makes a bit of sense.
