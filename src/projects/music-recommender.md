@@ -3,7 +3,7 @@ layout: layouts/base.njk
 title: Music Recommender System
 image: /images/pca_plot.png
 date: 2025-03-01
-featured: true
+featured:
 ---
 
 ## Music Recommender
