@@ -6,13 +6,13 @@ date: 2025-12-15
 featured: true
 ---
 
-# Ambigen - Text and Audio prompted Ambient Music Generator
+# Ambigen - Text and Audio Conditional Ambient Music Generator
 
 Final project for PAT 463 - Music and AI, Fall 2025
 
 Dennis Farmer
 
-![diagram.png](/images/ambigen.png)
+![web_interface](/images/ambigen_web_interface.png)
 
 https://github.com/dennisfarmer/ambigen
 
@@ -21,3 +21,5 @@ I have created a tool for creating remixes of uploaded ambient synthesizer track
 I used Dash to provide a user interface, which was forwarded over an SSH connection to the Great Lakes HPC compute cluster.
 
 default prompt: "ambient synthesizer, with warm pads, slow chord changes, counterpoint, constant motion, sustain, brian eno"
+
+![ambigen](/images/ambigen.png)
