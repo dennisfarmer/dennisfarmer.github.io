@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-title: Shazamesque
+title: Shazam
 image: /images/f25-shazam.png
 date: 2025-09-07
 featured: true
@@ -13,9 +13,11 @@ featured: true
 
 Evan Teal, Dennis Farmer
 
-The goal of this program is to create a scalable Shazam clone that can identify songs its library from audio input.
+A scalable Shazam clone that can identify songs its library from audio input.
 
-This project will combine elements of Machine Learning, Signal Analysis, App Development (React + JavaScript), and Backend Development (SQL + Flask).
+This project combines elements of Machine Learning, Signal Analysis, App Development (React + JavaScript), and Backend Development (SQL + Flask).
+
+https://github.com/evanteal15/Shazam-App-Template
 
 ## Timeline
 
