@@ -18,8 +18,7 @@ https://github.com/dennisfarmer/ambigen
 
 I have created a tool for creating remixes of uploaded ambient synthesizer tracks, using MusicGen, an open source transformer-based AI model that generates music from a text prompt paired with an audio sample to condition on.
 
-I used Dash to provide a user interface, which was forwarded over an SSH connection to the Great Lakes HPC compute cluster.
 
-default prompt: "ambient synthesizer, with warm pads, slow chord changes, counterpoint, constant motion, sustain, brian eno"
+<embed class="score" src="/presentations/463_project_report_dennis.pdf" type="application/pdf">
 
 ![ambigen](/images/ambigen.png)
