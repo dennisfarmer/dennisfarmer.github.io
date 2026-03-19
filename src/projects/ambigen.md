@@ -3,7 +3,7 @@ layout: layouts/base.njk
 title: Conditional Ambient Music Generator
 image: /images/ambigen.png
 date: 2025-12-15
-featured: true
+featured: false
 ---
 
 # Ambigen - Text and Audio Conditional Ambient Music Generator
