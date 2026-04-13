@@ -2,8 +2,8 @@
 layout: layouts/base.njk
 title: Numerical Methods for Fluid Flow
 image: /images/laminar-turbulent-flow.jpg
-date: 2026-03-01
-featured: true
+date: 2028-03-01
+featured: false
 ---
 
 ![Preview](/images/laminar-turbulent-flow.jpg)
