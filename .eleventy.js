@@ -19,6 +19,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "public/webamp": "webamp" });
   eleventyConfig.addPassthroughCopy({ "public/presentations": "presentations" });
   eleventyConfig.addPassthroughCopy({ "public/dennis_farmer_resume.pdf": "dennis_farmer_resume.pdf" });
+  eleventyConfig.addPassthroughCopy({ "public/dennis_farmer_music_resume.pdf": "dennis_farmer_music_resume.pdf" });
   eleventyConfig.addPassthroughCopy({ "public/dennisfj.sh": "dennisfj.sh" });
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addCollection("posts", function(collectionApi) {

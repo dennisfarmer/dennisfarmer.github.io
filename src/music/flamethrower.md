@@ -3,6 +3,7 @@ layout: layouts/base.njk
 title: Flamethrower
 image: /images/flamethrower.jpg
 featured: true
+hidden: true
 date: 2025-09-07
 ---
 

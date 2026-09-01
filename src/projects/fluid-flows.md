@@ -2,8 +2,9 @@
 layout: layouts/base.njk
 title: Numerical Methods for Fluid Flow
 image: /images/laminar-turbulent-flow.jpg
-date: 2028-03-01
+date: 2026-03-01
 featured: false
+hidden: true
 ---
 
 ![Preview](/images/laminar-turbulent-flow.jpg)
@@ -22,6 +23,7 @@ Abstract: Estimating physical parameters from experimental data is a problem of 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/o2A61bJ0UCw?si=O2L90dpHJEdFIP-E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 -->
 
+<!--
 Below are some of my markdown notes for concepts covered and reviewed throughout the semester - seperate from my written notes.
 
 # Multivariable Calculus
@@ -600,3 +602,5 @@ https://www.google.com/search?q=condition+numbers+of+a+matrix&rlz=1C5CHFA_enUS11
 [cs357](https://cs357.cs.illinois.edu/textbook/)
 
 [Condition Numbers - Numberical Methods Course](https://cs357.cs.illinois.edu/textbook/notes/condition.html)
+
+-->
