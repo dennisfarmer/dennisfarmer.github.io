@@ -23,7 +23,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "public/dennisfj.sh": "dennisfj.sh" });
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addCollection("posts", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/posts/*.md");
+    // Exclude the section's own index page, so collections.posts counts only
+    // actual posts. That lets the header drop the Posts tab when every post is
+    // hidden (see eleventyComputed.js) rather than linking to an empty page.
+    return collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => post.url !== "/posts/");
   });
   eleventyConfig.addCollection("projects", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/projects/*.md");

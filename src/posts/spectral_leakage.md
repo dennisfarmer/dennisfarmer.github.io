@@ -5,6 +5,7 @@ date: 2025-10-18
 image: /images/fourier.png
 tag:
 leftalign: true
+hidden: true
 ---
 
 ![artwork](/images/fourier.png)

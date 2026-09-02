@@ -4,11 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Fonts are self-hosted (see @font-face in style.css); preloaded here so
+       they are in hand before first paint and nothing renders in a fallback. -->
+  <link rel="preload" as="font" type="font/woff2" href="/css/fonts/InstrumentSerif-Regular.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/css/fonts/IBMPlexSans-Variable.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/css/fonts/JetBrainsMono-Variable.woff2" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Pre-composited header image, fetched at high priority so the band paints
+       with the page instead of a frame or two later. -->
+  <link rel="preload" as="image" href="/images/assets/bg-composite.webp" fetchpriority="high">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
@@ -35,6 +40,40 @@
     document.documentElement.classList.toggle('light-mode', theme === 'light');
   })();
   </script>
+
+  <!--
+  Header band continuity. Each section crops a different slice of the dune and
+  sits at a different depth. This records what the last page settled on so the
+  next page starts there and slides, instead of snapping and then animating.
+  The values themselves live in style.css (html.sec-*) and are read back here,
+  so there is no second copy to keep in sync. Runs in <head>, after the
+  render-blocking stylesheet, so the start values are set before first paint.
+  -->
+  <script>
+  (function() {
+    var root = document.documentElement;
+    var seg = location.pathname.split("/")[1] || "home";
+    root.classList.add("sec-" + seg);
+
+    var cs = getComputedStyle(root);
+    var toY = cs.getPropertyValue("--band-y").trim();
+    var toH = cs.getPropertyValue("--band-h").trim();
+    var fromY = toY;
+    var fromH = toH;
+
+    try {
+      var sy = sessionStorage.getItem("bandY");
+      var sh = sessionStorage.getItem("bandH");
+      if (sy) fromY = sy;
+      if (sh) fromH = sh;
+      sessionStorage.setItem("bandY", toY);
+      sessionStorage.setItem("bandH", toH);
+    } catch (e) { /* private mode: start at the target, no slide */ }
+
+    root.style.setProperty("--band-from", fromY);
+    root.style.setProperty("--band-h-from", fromH);
+  })();
+  </script>
 </head>
 <body class="{{ section }}">
   <script>
@@ -44,6 +83,14 @@
     }
   </script>
   {% include "components/header.njk" %}
+  {% if page.url != '/' %}
+  {% set seg = page.url.split('/')[1] %}
+  <div class="page-band {{ seg }}">
+    <div class="page-band-inner">
+      <span class="page-band-eyebrow">{{ seg }}</span>
+    </div>
+  </div>
+  {% endif %}
   <main  class="{{ section }}{% if leftalign %} leftalign{% endif %}">
     {{ content | safe }}
   </main>

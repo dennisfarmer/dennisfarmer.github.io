@@ -5,17 +5,63 @@
    Everything below is presentation: no page content depends on it.
    ========================================================================== */
 
+/* Self-hosted so the browser learns each font's URL from this stylesheet
+   rather than after a round-trip to fonts.googleapis.com. That second hop is
+   what kept missing the display deadline and leaving the page in fallback
+   faces. Latin subsets, straight from Google's own files.
+
+   font-display: block — with a same-origin preload these arrive within a few
+   milliseconds, and blocking briefly means text is never painted in a
+   fallback face first, so nothing reflows once the real face lands. */
+
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/css/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-family: "Instrument Serif";
+  src: url("/css/fonts/InstrumentSerif-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-display: swap;
+  font-style: normal;
+  font-display: block;
 }
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/css/fonts/IBMPlexSans-Variable.woff2") format("woff2");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: block;
+}
+
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/css/fonts/JetBrainsMono-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-display: swap;
+  src: url("/css/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Registered so the crop position can be animated. Unregistered custom
+   properties are substituted as tokens and would jump between values. */
+@property --band-y {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 38%;
+}
+
+@property --band-from {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 38%;
+}
+
+@property --band-h {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 232px;
+}
+
+@property --band-h-from {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 232px;
 }
 
 /* --------------------------------------------------------------------------
@@ -40,6 +86,7 @@
      bg-static, which resolves to a very dark warm maroon (mean RGB 25/12/5).
      It is lifted rather than recoloured, so the red survives. */
   --hero-filter: brightness(2.15) saturate(1.35) contrast(1.04);
+  --band-fallback: #32170B;
   --hero-scrim-1: rgba(14, 20, 17, 0.34);
   --hero-scrim-2: rgba(14, 20, 17, 0.10);
   --media-filter: none;
@@ -57,24 +104,28 @@
 }
 
 html.light-mode {
-  --bg:          #F4F6F1;
-  --bg-raised:   rgba(18, 36, 26, 0.035);
-  --text:        #2A342C;
-  --text-strong: #101A13;
-  --text-mid:    #3B463D;
-  --muted:       #5F6B5E;
-  --faint:       #808B7E;
-  --rule:        rgba(16, 26, 19, 0.13);
-  --rule-strong: rgba(16, 26, 19, 0.22);
-  --accent:      #2F6B44;
-  --accent-2:    #7C6224;
-  --accent-soft: rgba(47, 107, 68, 0.08);
+  /* Muted sage rather than near-white. #DEE2D6 sits at ~86% luminance instead
+     of the 96% of the old #F4F6F1, which is what made this mode glaring. */
+  --bg:          #DEE2D6;
+  --bg-raised:   rgba(23, 30, 24, 0.05);
+  --text:        #333B33;
+  --text-strong: #171E18;
+  --text-mid:    #414A41;
+  --muted:       #5E675D;
+  --faint:       #7C857A;
+  --rule:        rgba(23, 30, 24, 0.14);
+  --rule-strong: rgba(23, 30, 24, 0.24);
+  --accent:      #2E6440;
+  --accent-2:    #7A5E24;
+  --accent-soft: rgba(46, 100, 64, 0.10);
 
   /* Same composite, flipped to a pale warm wash: invert lifts the near-black
-     to near-white, the 180deg rotation brings the red hue family back. */
-  --hero-filter: invert(1) hue-rotate(180deg) brightness(1.02) saturate(1.75) contrast(1.06);
-  --hero-scrim-1: rgba(244, 246, 241, 0.30);
-  --hero-scrim-2: rgba(244, 246, 241, 0.06);
+     to near-white, the 180deg rotation brings the red hue family back. The
+     brightness trim keeps the band near the page's own luminance. */
+  --hero-filter: invert(1) hue-rotate(180deg) brightness(0.86) saturate(1.8) contrast(1.05);
+  --band-fallback: #DCC5BD;
+  --hero-scrim-1: rgba(222, 226, 214, 0.28);
+  --hero-scrim-2: rgba(222, 226, 214, 0.06);
   --media-filter: none;
 
   color-scheme: light;
@@ -83,6 +134,18 @@ html.light-mode {
 /* --------------------------------------------------------------------------
    Base
    -------------------------------------------------------------------------- */
+
+/* Per-section header geometry. The <head> script adds the .sec-* class and
+   reads these back, so these declarations are the only place they live. */
+html {
+  --band-y: 38%;
+  --band-h: 232px;
+}
+
+html.sec-home     { --band-y: 38%; --band-h: 420px; }
+html.sec-projects { --band-y: 10%; }
+html.sec-music    { --band-y: 66%; }
+html.sec-posts    { --band-y: 90%; }
 
 html {
   overscroll-behavior-y: none;
@@ -120,18 +183,6 @@ body {
    collapse KaTeX output, which nests its SVGs deep inside spans. */
 body > div:has(> svg) {
   height: 0;
-}
-
-/* Page transition: a plain fade-in on load. Opacity only — it never touches
-   layout, so nothing can shift or resize mid-navigation. Deliberately NOT
-   @view-transition: the default root transition animates the snapshot group's
-   size, which visibly stretches text between pages of different heights. */
-@keyframes page-fade-in {
-  from { opacity: 0; }
-}
-
-body {
-  animation: page-fade-in 140ms ease-out backwards;
 }
 
 /* --------------------------------------------------------------------------
@@ -305,9 +356,14 @@ section.hero {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   margin-bottom: 3.25rem;
-  padding: calc(var(--header-h) + 72px) 0 68px;
+  height: var(--band-h);
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0 46px;
+  animation: band-resize 700ms cubic-bezier(0.25, 0.8, 0.3, 1) both;
   background: none;
-  background-color: transparent;
+  background-color: var(--band-fallback);
   background-image: none;
   border-radius: 0;
   overflow: hidden;
@@ -315,19 +371,66 @@ section.hero {
   isolation: isolate;
 }
 
-section.hero::before {
+section.hero::before,
+.page-band::before,
+footer::before {
   content: "";
   position: absolute;
   inset: 0;
+  /* bg-composite.png is the difference blend baked losslessly at build time.
+     Baking is only valid because BOTH layers now scale on the same axis: as a
+     single image sized `cover`, the grain tracks width exactly as the dune
+     does, so their relative geometry is fixed at every viewport size. The
+     earlier JPEG attempt failed for two reasons this fixes — the grain was
+     resampled to blobs (high-frequency amplitude 0.18 vs the runtime's 1.47),
+     and DCT quantisation of noise left 8x8 blocks that brightness(2.15) then
+     amplified. PNG keeps the grain bit-exact: measured 1.67 against 1.71.
+
+     ORIGINAL RUNTIME COMPOSITE — kept because the trick is worth preserving.
+     Two live layers blended with `difference`, pale dune minus grey grain
+     resolving to a dark warm maroon. Its one flaw is that the layers load
+     independently, so a late grain layer left the dune meeting
+     brightness(2.15) with nothing to subtract from, clipping to white.
+
   background-image: url("/images/assets/bg-pattern.jpg"), url("/images/assets/bg-static.jpg");
   background-blend-mode: difference;
-  background-size: cover, contain;
-  background-position: center 38%, center;
+  background-size: cover, auto 232px;
+  background-position: center var(--band-y), center;
+
+     Regenerate bg-composite.png (originals are never modified):
+       magick bg-pattern.jpg -resize 1600x1200! dune.png
+       magick bg-static.jpg -resize 464x232! tile.png
+       magick -size 1600x1200 tile:tile.png grain.png
+       magick dune.png grain.png -compose Difference -composite \
+         -define png:compression-level=9 bg-composite.png
+       cwebp -q 95 -m 6 bg-composite.png -o bg-composite.webp
+
+     The .png is the lossless master; the .webp is what ships. q95 measures
+     1.01% RMSE and grain 1.675 against the master's 1.667 — WebP, unlike
+     JPEG, does not block-quantise noise, so the grain survives at 1/5 the
+     size (0.57 MB vs 2.85 MB).
+  */
+
+  background-image: url("/images/assets/bg-composite.webp");
+  background-size: cover;
+  background-position: center var(--band-y);
   filter: var(--hero-filter);
   z-index: -2;
+  will-change: background-position;
+  animation: band-slide 700ms cubic-bezier(0.25, 0.8, 0.3, 1) both;
 }
 
-section.hero::after {
+/* Each section crops a different slice of the dune. --band-from is the slice
+   the previous page ended on (set in <head>), so navigation reads as one
+   continuous slide instead of a jump followed by a nudge. When the two match
+   — a fresh tab, or reloading the same page — the animation is a no-op. */
+@keyframes band-slide {
+  from { background-position: center var(--band-from); }
+  to   { background-position: center var(--band-y); }
+}
+
+section.hero::after,
+.page-band::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -341,6 +444,7 @@ section.hero::after {
 }
 
 .hero-content {
+  width: 100%;
   max-width: var(--measure);
   margin: 0 auto;
   padding: 0 var(--gutter);
@@ -431,6 +535,50 @@ section.hero::after {
   filter: grayscale(0.3) contrast(1.02);
   border: 1px solid var(--rule-strong);
   box-sizing: border-box;
+}
+
+
+/* --------------------------------------------------------------------------
+   Per-page header band — the hero's quieter sibling on every other page
+   -------------------------------------------------------------------------- */
+
+.page-band {
+  position: relative;
+  background-color: var(--band-fallback);
+  margin-top: calc(var(--header-h) * -1);
+  height: var(--band-h);
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+  animation: band-resize 700ms cubic-bezier(0.25, 0.8, 0.3, 1) both;
+}
+
+/* The band and the hero are different heights; --band-h-from is whatever the
+   previous page ended at, so the change in depth slides rather than snaps. */
+@keyframes band-resize {
+  from { height: var(--band-h-from); }
+  to   { height: var(--band-h); }
+}
+
+.page-band-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--measure);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 26px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+}
+
+.page-band-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 /* --------------------------------------------------------------------------
@@ -717,6 +865,78 @@ main a:has(img) {
 .card-sle         { color: var(--muted); }
 
 /* --------------------------------------------------------------------------
+   Work experience
+   -------------------------------------------------------------------------- */
+
+.experience {
+  display: flex;
+  flex-direction: column;
+}
+
+.job {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.job:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Logo slot. `contain` keeps each mark's own aspect inside the square box,
+   and the padding stops a full-bleed logo touching the border. */
+.job-logo {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 3px;
+  object-fit: contain;
+  padding: 5px;
+  box-sizing: border-box;
+  background: var(--bg-raised);
+  border: 1px solid var(--rule);
+}
+
+.job-body {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.job-role {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--text-strong);
+  margin: 0 0 0.2rem;
+}
+
+.job-company {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0 0 0.55rem;
+}
+
+.job-summary {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-mid);
+  max-width: 62ch;
+  margin: 0;
+}
+
+@media screen and (max-width: 720px) {
+  .job {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Education / skills / contact
    -------------------------------------------------------------------------- */
 
@@ -869,15 +1089,56 @@ p.katex-block {
    Footer
    -------------------------------------------------------------------------- */
 
+/* The header band's mirror image: the page dissolves back into the composite
+   on the way out. Same layer and same crop as the top, flipped vertically so
+   it reads as a reflection rather than a repeat, with the scrim gradient
+   reversed — solid at the top, image at the bottom. */
 footer {
+  position: relative;
+  /* isolation makes this a backdrop root, so .footer-bar's blur picks up the
+     image behind it and nothing further up the page. */
+  isolation: isolate;
+  overflow: hidden;
   text-align: center;
-  padding: 24px var(--gutter) 32px;
+  padding: 0;
+  min-height: 208px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   background: none;
-  background-color: transparent;
-  border-top: 1px solid var(--rule);
+  background-color: var(--band-fallback);
   color: var(--muted);
   margin-top: auto;
   margin-bottom: 0;
+}
+
+/* The header's bar, mirrored: the composite runs behind, and the links sit on
+   a translucent blurred panel over it. */
+.footer-bar {
+  position: relative;
+  z-index: 1;
+  padding: 16px var(--gutter);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-top: 1px solid var(--rule);
+}
+
+footer::before {
+  transform: scaleY(-1);
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--bg) 0%,
+    var(--hero-scrim-2) 62%,
+    var(--hero-scrim-1) 100%
+  );
+  z-index: -1;
 }
 
 .footer-icons {
@@ -949,8 +1210,17 @@ footer {
   main h2 { font-size: 1.625rem; }
   main h3 { font-size: 1.3125rem; }
 
+  /* Narrow screens stack the hero content, so let it size itself rather than
+     risk clipping it inside a fixed height — and skip the resize animation,
+     which has nothing fixed to animate to. */
+  html          { --band-h: 180px; }
+  html.sec-home { --band-h: 360px; }
+
   section.hero {
-    padding: calc(var(--header-h) + 48px) 0 48px;
+    height: auto;
+    display: block;
+    padding: calc(var(--header-h) + 48px) 0 44px;
+    animation: none;
   }
 
   .hero-content {
@@ -981,5 +1251,6 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-  body { animation: none; }
+  section.hero::before,
+  .page-band::before { animation: none; }
 }
