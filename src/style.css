@@ -486,7 +486,6 @@ section.hero::after,
 .profile-image-container {
   position: relative;
   display: inline-block;
-  cursor: pointer;
   flex-shrink: 0;
 }
 
